@@ -12,24 +12,6 @@
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="com.purva.nits.spokenenglishapp.ConversationSelect"
     tools:showIn="@layout/activity_conversation_select">
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Create file"
-        android:id="@+id/createFile1"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="45dp"
-        android:onClick="createFile"/>
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Read conversation"
-        android:id="@+id/readFile1"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="145dp"
-        android:onClick="readFile"/>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
