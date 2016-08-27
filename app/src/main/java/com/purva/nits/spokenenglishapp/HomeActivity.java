@@ -48,7 +48,7 @@ public class HomeActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "2016 © Purva & nits", Snackbar.LENGTH_LONG)
+                Snackbar.make(view, "2016 © Purva ♥ nits", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
             }
         });

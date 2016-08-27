@@ -36,9 +36,16 @@ public class SpeechService extends Service implements TextToSpeech.OnInitListene
 
         toSpeak = intent.getStringExtra(SpeechService.EXTRA_TO_SPEAK);
 
+        SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+        tts.setSpeechRate(Float.parseFloat(pref.getString("speechSpeed","1")));
+        Toast.makeText(getApplicationContext(), "Speech speed " + pref.getString("speechSpeed","1"), Toast.LENGTH_SHORT).show();
+
+        tts.setLanguage(new Locale(pref.getString("speechLocale", "en_US")));
+        Toast.makeText(getApplicationContext(), "Speech locale " + pref.getString("speechLocale", "en_US"), Toast.LENGTH_SHORT).show();
+
         if (isInit != null) {
             if (isInit)
-                Toast.makeText(getApplicationContext(),toSpeak,Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getApplicationContext(),toSpeak,Toast.LENGTH_SHORT).show();
                 speak();
         }
 

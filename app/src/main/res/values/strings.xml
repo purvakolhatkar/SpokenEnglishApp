@@ -6,7 +6,7 @@
     <string name="storiesSummary">Practice with Short Stories</string>
     <string name="conversationSummary">Learn everyday conversations</string>
 
-    <string name="story">Read stories</string>
+    <string name="story">Read stories (Test TTS)</string>
     <string name="conversation">Start Conversation</string>
     <string name="title_activity_settings">Settings</string>
 
