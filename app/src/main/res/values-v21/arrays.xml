@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="speechLocales">
+        <item name="en_US">English (US)</item>
+        <item name="en_GB">English (UK)</item>
+    </string-array>
+    <string-array name="speechLocaleValues">
+        <item name="en_US">en_US</item>
+        <item name="en_GB">en_GB</item>
+    </string-array>
+    <string-array name="speechSpeed">
+        <item name="1">Normal</item>
+        <item name="0.5">Medium</item>
+        <item name="0.25">Slow</item>
+    </string-array>
+    <string-array name="speechSpeedValues">
+        <item name="1">1</item>
+        <item name="0.5">0.5</item>
+        <item name="0.25">0.25</item>
+    </string-array>
+</resources>
