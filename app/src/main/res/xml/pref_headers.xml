@@ -4,8 +4,8 @@
 
     <header
         android:fragment="com.purva.nits.spokenenglishapp.SettingsActivity$GeneralPreferenceFragment"
-        android:icon="@drawable/ic_info_black_24dp"
-        android:title="@string/pref_header_general" />
+        android:icon="@drawable/ic_microphone_black_24dp"
+        android:title="@string/pref_header_speech" />
 
     <header
         android:fragment="com.purva.nits.spokenenglishapp.SettingsActivity$NotificationPreferenceFragment"

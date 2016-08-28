@@ -1,47 +1,37 @@
 package com.purva.nits.spokenenglishapp;
 
 public class ConversationModel {
-    int convid;
-    int sentid;
-    String sentence;
-    String person;
-    public ConversationModel(){ }
-    public ConversationModel(int convid, int sentid, String sentence, String person){
-        this.convid=convid;
-        this.sentid=sentid;
-        this.sentence=sentence;
-        this.person=person;
+    int conversationId;
+    String type;
+    String title;
+    public ConversationModel(){}
+    public ConversationModel(int conversationId, String type, String title) {
+        this.conversationId = conversationId;
+        this.type = type;
+        this.title = title;
     }
 
-    public int getConvid() {
-        return convid;
+    public int getConversationId() {
+        return conversationId;
     }
 
-    public void setConvid(int convid) {
-        this.convid = convid;
+    public void setConversationId(int conversationId) {
+        this.conversationId = conversationId;
     }
 
-    public int getSentid() {
-        return sentid;
+    public String getType() {
+        return type;
     }
 
-    public void setSentid(int sentid) {
-        this.sentid = sentid;
+    public void setType(String type) {
+        this.type = type;
     }
 
-    public String getSentence() {
-        return sentence;
+    public String getTitle() {
+        return title;
     }
 
-    public void setSentence(String sentence) {
-        this.sentence = sentence;
-    }
-
-    public String getPerson() {
-        return person;
-    }
-
-    public void setPerson(String person) {
-        this.person = person;
+    public void setTitle(String title) {
+        this.title = title;
     }
 }

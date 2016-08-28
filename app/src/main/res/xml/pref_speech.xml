@@ -11,4 +11,10 @@
         android:entryValues="@array/speechSpeedValues"
         android:key="speechSpeed"
         android:title="@string/speed_setting_title" />
+    <ListPreference
+        android:defaultValue="0"
+        android:entries="@array/wordPause"
+        android:entryValues="@array/wordPauseValues"
+        android:key="wordPause"
+        android:title="@string/pause_setting_title" />
 </PreferenceScreen>

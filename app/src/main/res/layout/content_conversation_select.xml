@@ -17,6 +17,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:id="@+id/tv1"
-        android:text="Conversation list"/>
+        android:id="@+id/conversationListTitle"
+        android:text="Conversation list"
+        style="@style/Base.TextAppearance.AppCompat.Title"/>
 </LinearLayout>

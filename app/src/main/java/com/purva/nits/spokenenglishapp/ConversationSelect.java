@@ -1,24 +1,12 @@
 package com.purva.nits.spokenenglishapp;
 
-import android.content.Context;
 import android.content.Intent;
-import android.database.Cursor;
-import android.support.annotation.IdRes;
-import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.text.Html;
-import android.text.method.LinkMovementMethod;
-import android.util.Log;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.InputStreamReader;
+
 import java.util.ArrayList;
 
 public class ConversationSelect extends AppCompatActivity {
@@ -28,8 +16,8 @@ public class ConversationSelect extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_conversation_select);
         final DBHelper dbHelper=new DBHelper(this);
-        final ArrayList<String> convs=dbHelper.getTitleList();
-        TextView textView=(TextView) findViewById(R.id.tv1);
+        final ArrayList<String> convs=dbHelper.getConversationTitles();
+        TextView textView=(TextView) findViewById(R.id.conversationListTitle);
         textView.setText("Practice with below conversations");
         LinearLayout layout=(LinearLayout)findViewById(R.id.content_conversation_select);
         LinearLayout.LayoutParams lp= new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
@@ -47,10 +35,9 @@ public class ConversationSelect extends AppCompatActivity {
             listConv[i-1].setText(line);
             //listConv[i-1].setMovementMethod(LinkMovementMethod.getInstance());
             listConv[i-1].setClickable(true);
-
             layout.addView(listConv[i-1]);
             line="";
-            final int temp1=dbHelper.getConversationid(convs.get(temp-1));
+            final int temp1=dbHelper.getConversations(convs.get(temp-1));
             System.out.println("Conversation id::"+temp1);
             listConv[i-1].setOnClickListener(new View.OnClickListener(){
                 public void onClick(View c)
@@ -61,7 +48,7 @@ public class ConversationSelect extends AppCompatActivity {
             });
         }
         //textView.setText(line);
-        /**ArrayList<String> conv=dbHelper.getConversation(1);
+        /**ArrayList<String> conv=dbHelper.getDialogue(1);
        TextView textView=(TextView) findViewById(R.id.tv1);
         String line="";
         for (int i=0;i<conv.size();i++)
@@ -75,9 +62,9 @@ public class ConversationSelect extends AppCompatActivity {
        // layout.addView(textView);
       }
 
-    public void toConversation(int convid) {
+    public void toConversation(int conversationId) {
         Intent toConversation_intent = new Intent(this, ViewConversation.class);
-        String s=String.valueOf(convid);
+        String s=String.valueOf(conversationId);
         toConversation_intent.putExtra("EXTRA_TO_CONV",s);
         System.out.println("Conversation selected::"+s);
         startActivity(toConversation_intent);

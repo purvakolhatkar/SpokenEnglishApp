@@ -25,35 +25,38 @@ public class DBHelper extends SQLiteOpenHelper{
     /**
      * 2 tables to save one conversation,  one contains conversation id and type,title. Example of type is daily, help,etc.Example of title can be basic introduction,asking directions etc.
      * Can be retrieved by type on one page and select one of the conversations on next page
-     * Conversations consists of multiple sentences. Sentences of one conversation can be retrieved by convid and sentenceid
+     * Conversations consists of multiple sentences. Sentences of one conversation can be retrieved by conversationId and sentenceId
      * **/
     @Override
     public void onCreate(SQLiteDatabase db) {
-        db.execSQL("create table conversationid "+"(convid integer primary key,type text,title text)");
-        db.execSQL("create table conversations "+"(convid integer,sentid integer, sentences text,person text,foreign key(convid) references conversationid(convid))");
+        db.execSQL("create table conversationTable "+"(conversationId integer primary key,type text,title text)");
+        db.execSQL("create table dialogueTable "+"(conversationId integer,sentenceId integer, sentences text,person text,foreign key(conversationId) references conversationTable(conversationId))");
         Log.d("Insert:","...Inserting...");
         //db.close();
         try {
-
-            AssetManager manager=activity_context.getAssets();
-            BufferedReader appdata = new BufferedReader(new InputStreamReader(manager.open("AppData.csv")));
-            BufferedReader conid = new BufferedReader(new InputStreamReader(manager.open("Conversationid.csv")));
-            String temp,temp1;
-            int convid=0;
-            while((temp1=conid.readLine())!=null)
+            AssetManager assetManager=activity_context.getAssets();
+            BufferedReader conversationListReader = new BufferedReader(new InputStreamReader(assetManager.open("conversationDump.csv")));
+            String tempDialog,tempConversation;
+            while((tempConversation=conversationListReader.readLine())!=null)
             {
-                String[] columns1=temp1.split(",");
-                convid=Integer.parseInt(columns1[0]);
-                db.execSQL("insert into conversationid (convid,type,title) values ("+convid+",'"+columns1[1]+"','"+columns1[2]+"')");
+                String[] conversationColumn=tempConversation.split(",");
+                int conversationId=Integer.parseInt(conversationColumn[0]);
+                db.execSQL("insert into conversationTable (conversationId,type,title) values ("+conversationId+",'"+conversationColumn[1]+"','"+conversationColumn[2]+"')");
 
-                while((temp=appdata.readLine())!=null)
-            {
-                System.out.println("Inserting from file::"+temp);
-                String[] columns=temp.split(",");
+                BufferedReader dialogueListReader = new BufferedReader(new InputStreamReader(assetManager.open("dialogueDump.csv")));
+                while((tempDialog=dialogueListReader.readLine())!=null)
+                {
+                    System.out.println("Inserting from file::"+tempDialog);
+                    String[] dialogueColumn=tempDialog.split(",");
 
-                insertConversation(convid,Integer.parseInt(columns[1]),columns[2],columns[3],db);
+                    ////Avoid inserting invalid conversationIds
+                    if(conversationColumn[0].equals(dialogueColumn[0])){
+                        insertDialogues(conversationId,Integer.parseInt(dialogueColumn[1]),dialogueColumn[2],dialogueColumn[3],db);
+                    }
+                }
+                dialogueListReader.close();  ///Close to reopen from beginning
             }
-            }
+            conversationListReader.close();
         }
         catch (FileNotFoundException e)
         {
@@ -67,63 +70,65 @@ public class DBHelper extends SQLiteOpenHelper{
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        // TODO Auto-generated method stub
-        db.execSQL("DROP TABLE IF EXISTS conversationid");
-        db.execSQL("DROP TABLE IF EXISTS conversations");
+        db.execSQL("DROP TABLE IF EXISTS conversationTable");
+        db.execSQL("DROP TABLE IF EXISTS dialogueTable");
         onCreate(db);
     }
-    //Insert into conversationid and conversations table
-    public boolean insertConversation( int convid, int sentid,String sentence,String person, SQLiteDatabase db1)
+    //Insert into conversationTable and dialogueTable table
+    public boolean insertDialogues(int conversationId, int sentenceId, String sentence, String person, SQLiteDatabase db1)
     {
      //SQLiteDatabase db1 = this.getWritableDatabase();
         //ContentValues contentValues = new ContentValues();
         //contentValues.put("type", type);
-        //long i=db.insert("conversationid", null, contentValues); //returns the primary key of the row inserted
-        //Cursor rec= db.rawQuery("SELECT * FROM CONVERSATIONID WHERE CONVID = (SELECT MAX(CONVID) FROM CONVERSATIONID);",null);
+        //long i=db.insert("conversationTable", null, contentValues); //returns the primary key of the row inserted
+        //Cursor rec= db.rawQuery("SELECT * FROM conversationTable WHERE conversationId = (SELECT MAX(conversationId) FROM conversationTable);",null);
         //int i=rec.getInt(1);
-            ContentValues cv = new ContentValues();
-            cv.put("convid", convid);
-            cv.put("sentid", sentid);
-            cv.put("sentences", sentence);
-            cv.put("person",person);
-            db1.insert("conversations", null, cv);
+            ContentValues contentValues = new ContentValues();
+            contentValues.put("conversationId", conversationId);
+            contentValues.put("sentenceId", sentenceId);
+            contentValues.put("sentences", sentence);
+            contentValues.put("person",person);
+            db1.insert("dialogueTable", null, contentValues);
             return true;
     }
     // Getting all sentences in one conversation
-    public Cursor getConversation(int convid)
+    public Cursor getDialogue(int conversationId)
     {
-       // ArrayList<String> conv= new ArrayList<String>();
+       // ArrayList<String> conversations= new ArrayList<String>();
         System.out.println(this.getDatabaseName());
         SQLiteDatabase db2=this.getReadableDatabase();
-        Cursor rec= db2.rawQuery("select * from conversations where convid="+convid+"",null);
-        rec.moveToFirst();
+        Cursor cursor= db2.rawQuery("select * from dialogueTable where conversationId="+conversationId+"",null);
+        cursor.moveToFirst();
         /**while (rec.isAfterLast()== false){
-            conv.add(rec.getString(rec.getColumnIndex("sentences")));
+            conversations.add(cursor.getString(rec.getColumnIndex("sentences")));
             rec.moveToNext();
         }
  **/       db2.close();
-        return rec;
+        return cursor;
     }
 
-    public ArrayList getTitleList()
+    public ArrayList getConversationTitles()
     {
-        ArrayList<String> conv= new ArrayList<String>();
+        ArrayList<String> conversationTitles= new ArrayList<String>();
         SQLiteDatabase db2=this.getReadableDatabase();
-        Cursor rec=db2.rawQuery("select * from conversationid",null);
-        rec.moveToFirst();
-        while (rec.isAfterLast()== false){
-            conv.add(rec.getString(rec.getColumnIndex("title")));
-            rec.moveToNext();
+        Cursor cursor=db2.rawQuery("select * from conversationTable",null);
+        cursor.moveToFirst();
+        while (!cursor.isAfterLast()){
+            conversationTitles.add(cursor.getString(cursor.getColumnIndex("title")));
+            cursor.moveToNext();
         }
+        cursor.close();
         db2.close();
-        return conv;
+        return conversationTitles;
     }
-    public int getConversationid(String title)
+    public int getConversations(String conversationTitle)
     {
         SQLiteDatabase db2=this.getReadableDatabase();
-        Cursor rec=db2.rawQuery("select convid from conversationid where title like '"+title+"'",null);
-        rec.moveToFirst();
-        int convid=rec.getInt(0);
-        return convid;
+        Cursor cursor=db2.rawQuery("select conversationId from conversationTable where title like '"+conversationTitle+"'",null);
+        cursor.moveToFirst();
+        int conversationId=cursor.getInt(0);
+        cursor.close();
+        db2.close();
+        return conversationId;
     }
 }

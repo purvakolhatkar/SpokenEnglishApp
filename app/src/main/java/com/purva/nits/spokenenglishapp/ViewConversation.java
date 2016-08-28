@@ -1,17 +1,12 @@
 package com.purva.nits.spokenenglishapp;
 
 import android.database.Cursor;
-import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.google.android.gms.appindexing.Action;
-import com.google.android.gms.appindexing.AppIndex;
 import com.google.android.gms.common.api.GoogleApiClient;
-
-import java.util.ArrayList;
 
 public class ViewConversation extends AppCompatActivity {
     public static final String EXTRA_TO_CONV = "id";
@@ -30,14 +25,14 @@ public class ViewConversation extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_conversation);
         final DBHelper dbHelper = new DBHelper(this);
-        //int convid = Integer.parseInt(getIntent().getStringExtra(ViewConversation.EXTRA_TO_CONV));
+        //int conversationId = Integer.parseInt(getIntent().getStringExtra(ViewConversation.EXTRA_TO_CONV));
         Bundle extras = getIntent().getExtras();
-         String  id= extras.getString("EXTRA_TO_CONV");
+        String  id= extras.getString("EXTRA_TO_CONV");
         int convid = Integer.parseInt(id);
         System.out.println("ConID::"+convid);
-        Cursor conv = dbHelper.getConversation(convid);
+        Cursor conv = dbHelper.getDialogue(convid);
         conv.moveToFirst();
-      //  String s=conv.getString(conv.getColumnIndex("sentid"));
+      //  String s=conv.getString(conv.getColumnIndex("sentenceId"));
        // System.out.println("Sentence last"+s);
         int size=0;
         while (conv.isAfterLast()==false)
@@ -61,7 +56,5 @@ public class ViewConversation extends AppCompatActivity {
             conv.moveToNext();
         }
         //textView.setText(line);
-       }
-
-
+    }
 }

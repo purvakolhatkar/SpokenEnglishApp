@@ -12,11 +12,12 @@
 
     <string name="locale_setting_title">Speech Locale</string>
     <string name="speed_setting_title">Speech Speed</string>
+    <string name="pause_setting_title">Word Pause Interval</string>
 
     <!-- Strings related to Settings -->
 
     <!-- Example General settings -->
-    <string name="pref_header_general">General</string>
+    <string name="pref_header_speech">Speech</string>
 
     <string name="pref_title_social_recommendations">Enable social recommendations</string>
     <string name="pref_description_social_recommendations">Recommendations for people to contact
