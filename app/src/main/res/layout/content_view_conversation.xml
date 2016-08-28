@@ -11,12 +11,7 @@
     android:id="@+id/content_conversation_select"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     android:orientation="vertical"
-    tools:context="com.purva.nits.spokenenglishapp.ConversationSelect"
-    tools:showIn="@layout/activity_conversation_select">
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:id="@+id/tv1"
-        android:text="Conversation list"/>
+    tools:context="com.purva.nits.spokenenglishapp.ViewConversation"
+    tools:showIn="@layout/activity_view_conversation">
+
 </LinearLayout>
