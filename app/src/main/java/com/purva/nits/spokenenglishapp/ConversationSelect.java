@@ -1,25 +1,37 @@
 package com.purva.nits.spokenenglishapp;
 
+import android.app.ListActivity;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.LinearLayout;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
 
-public class ConversationSelect extends AppCompatActivity {
+public class ConversationSelect extends ListActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_conversation_select);
-        final DBHelper dbHelper=new DBHelper(this);
+        DBHelper dbHelper=new DBHelper(this);
         final ArrayList<String> convs=dbHelper.getConversationTitles();
         TextView textView=(TextView) findViewById(R.id.conversationListTitle);
         textView.setText("Practice with below conversations");
-        LinearLayout layout=(LinearLayout)findViewById(R.id.content_conversation_select);
+        String[] values=new String[convs.size()];
+        for(int i=0;i<convs.size();i++)
+        {
+            values[i]=convs.get(i);
+        }
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
+                android.R.layout.simple_list_item_1, values);
+
+        setListAdapter(adapter);
+        /**LinearLayout layout=(LinearLayout)findViewById(R.id.content_conversation_select);
         LinearLayout.LayoutParams lp= new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
         TextView[] listConv=new TextView[convs.size()];
         String line="";
@@ -46,7 +58,7 @@ public class ConversationSelect extends AppCompatActivity {
 
                 }
             });
-        }
+        }**/
         //textView.setText(line);
         /**ArrayList<String> conv=dbHelper.getDialogue(1);
        TextView textView=(TextView) findViewById(R.id.tv1);
@@ -61,6 +73,19 @@ public class ConversationSelect extends AppCompatActivity {
        // ViewGroup layout = (ViewGroup) findViewById(R.id.content_conversation_select);
        // layout.addView(textView);
       }
+
+    @Override
+    protected void onListItemClick(ListView l, View v, int position, long id) {
+
+        super.onListItemClick(l, v, position, id);
+        // ListView Clicked item index
+        int itemPosition     = position;
+        DBHelper dbHelper=new DBHelper(this);
+        // ListView Clicked item value
+        String  itemValue    = (String) l.getItemAtPosition(position);
+        int temp1=dbHelper.getConversations(itemValue);
+        toConversation(temp1);
+    }
 
     public void toConversation(int conversationId) {
         Intent toConversation_intent = new Intent(this, ViewConversation.class);

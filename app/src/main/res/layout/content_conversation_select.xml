@@ -20,4 +20,9 @@
         android:id="@+id/conversationListTitle"
         android:text="Conversation list"
         style="@style/Base.TextAppearance.AppCompat.Title"/>
+    <ListView android:id="@android:id/list"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        >
+    </ListView>
 </LinearLayout>
