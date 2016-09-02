@@ -79,10 +79,10 @@ public class ConversationSelect extends ListActivity {
 
         super.onListItemClick(l, v, position, id);
         // ListView Clicked item index
-        int itemPosition     = position;
+        int itemPosition = position;
         DBHelper dbHelper=new DBHelper(this);
         // ListView Clicked item value
-        String  itemValue    = (String) l.getItemAtPosition(position);
+        String itemValue = (String) l.getItemAtPosition(position);
         int temp1=dbHelper.getConversations(itemValue);
         toConversation(temp1);
     }

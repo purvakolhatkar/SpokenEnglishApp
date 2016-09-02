@@ -21,8 +21,8 @@
         android:text="Conversation list"
         style="@style/Base.TextAppearance.AppCompat.Title"/>
     <ListView android:id="@android:id/list"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        >
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        style="@style/Base.Widget.AppCompat.ListView">
     </ListView>
 </LinearLayout>
