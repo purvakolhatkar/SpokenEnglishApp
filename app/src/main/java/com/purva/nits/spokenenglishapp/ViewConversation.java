@@ -2,9 +2,12 @@ package com.purva.nits.spokenenglishapp;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.ColorStateList;
 import android.database.Cursor;
+import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.TypedValue;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
@@ -57,8 +60,15 @@ public class ViewConversation extends AppCompatActivity {
         for (int i = 0; i < size && conv.isAfterLast()== false; i++) {
             listSentence[i]=new TextView(this);
             listSentence[i].setId(i+1);
-            line=conv.getString(conv.getColumnIndex("person"))+"::"+conv.getString(conv.getColumnIndex("sentences"));
+            line=conv.getString(conv.getColumnIndex("person"))+": "+conv.getString(conv.getColumnIndex("sentences"));
             listSentence[i].setText(line);
+            listSentence[i].setTextSize(TypedValue.COMPLEX_UNIT_DIP, 25);
+            /////Set alternate colors by even/odd logic
+            if((i&1)==0){
+                listSentence[i].setTextColor(Color.BLACK);
+            }else{
+                listSentence[i].setTextColor(Color.GREEN);
+            }
             layout.addView(listSentence[i]);
             final String temp=conv.getString(conv.getColumnIndex("sentences"));
             listSentence[i].setOnClickListener(new View.OnClickListener(){
@@ -72,11 +82,11 @@ public class ViewConversation extends AppCompatActivity {
             });
             conv.moveToNext();
         }
-        Button b1= new Button(this);
-        b1.setText("Play Conversation");
-        b1.setHeight(64);
+        Button btnPlayConv= new Button(this);
+        btnPlayConv.setText("Play Conversation");
+        btnPlayConv.setHeight(64);
 
-        layout.addView(b1);
+        layout.addView(btnPlayConv);
         String line1 = "";
         conv.moveToFirst();
         for (int i = 0; i < size && conv.isAfterLast()== false; i++) {
@@ -85,7 +95,7 @@ public class ViewConversation extends AppCompatActivity {
         }
         final String readconversation=line1;
 
-        b1.setOnClickListener(new View.OnClickListener(){
+        btnPlayConv.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
                 Context context = getApplicationContext();
