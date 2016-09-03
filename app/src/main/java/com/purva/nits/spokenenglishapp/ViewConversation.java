@@ -67,7 +67,7 @@ public class ViewConversation extends AppCompatActivity {
             if((i&1)==0){
                 listSentence[i].setTextColor(Color.BLACK);
             }else{
-                listSentence[i].setTextColor(Color.GREEN);
+                listSentence[i].setTextColor(Color.GRAY);
             }
             layout.addView(listSentence[i]);
             final String temp=conv.getString(conv.getColumnIndex("sentences"));
@@ -79,13 +79,12 @@ public class ViewConversation extends AppCompatActivity {
                     speechServiceIntent.putExtra(SpeechService.EXTRA_TO_SPEAK, temp);
                     context.startService(speechServiceIntent);
                 }
-            });
+            }); 
             conv.moveToNext();
         }
         Button btnPlayConv= new Button(this);
         btnPlayConv.setText("Play Conversation");
         btnPlayConv.setHeight(64);
-
         layout.addView(btnPlayConv);
         String line1 = "";
         conv.moveToFirst();

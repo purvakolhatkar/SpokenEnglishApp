@@ -37,12 +37,12 @@ public class HomeActivity extends AppCompatActivity {
 
         storyButton=(Button) findViewById(R.id.storyButton);
         storiesSummary=(TextView) findViewById(R.id.storiesSummary);
-        storyButton.setOnClickListener(new View.OnClickListener(){
+       /** storyButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
                 speak();
             }
-        });
+        }); **/
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -66,7 +66,10 @@ public class HomeActivity extends AppCompatActivity {
         Intent intent = new Intent(this, ConversationSelect.class);
         startActivity(intent);
     }
-
+    public void startStory(View view){
+        Intent intent = new Intent(this, StorySelect.class);
+        startActivity(intent);
+    }
     @Override
     protected void onDestroy() {
         super.onDestroy();
