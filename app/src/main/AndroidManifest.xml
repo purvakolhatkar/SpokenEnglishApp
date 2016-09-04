@@ -22,7 +22,6 @@
         <activity
             android:name=".SettingsActivity"
             android:label="@string/title_activity_settings" />
-
         <service
             android:name=".SpeechService"
             android:enabled="true" />
@@ -38,7 +37,9 @@
 
         <activity android:name=".PracticeConversation" />
         <activity android:name=".StorySelect" />
-        <activity android:name=".ViewStory"></activity>
+        <activity android:name=".ViewStory" />
+        <activity android:name=".AboutActivity"
+            android:label="About"/>
     </application>
 
 </manifest>

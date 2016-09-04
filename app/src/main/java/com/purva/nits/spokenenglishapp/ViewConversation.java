@@ -2,9 +2,11 @@ package com.purva.nits.spokenenglishapp;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.res.ColorStateList;
 import android.database.Cursor;
 import android.graphics.Color;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.TypedValue;
@@ -57,12 +59,14 @@ public class ViewConversation extends AppCompatActivity {
         LinearLayout layout=(LinearLayout) findViewById(R.id.conversationLayout);
 //        LinearLayout.LayoutParams lp= new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
         String line = "";
+        SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
         conv.moveToFirst();
         for (int i = 0; i < size && conv.isAfterLast()== false; i++) {
             listSentence[i]=new TextView(this);
             listSentence[i].setId(i+1);
             line=conv.getString(conv.getColumnIndex("person"))+": "+conv.getString(conv.getColumnIndex("sentences"));
             listSentence[i].setText(line);
+            listSentence[i].setTextSize(Float.parseFloat(pref.getString("textSize","18")));
             listSentence[i].setTextAppearance(this, R.style.fontForViewConversation);
             //listSentence[i].setTextSize(TypedValue.COMPLEX_UNIT_DIP, 25);
             /////Set alternate colors by even/odd logic

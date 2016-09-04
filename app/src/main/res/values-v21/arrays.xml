@@ -30,5 +30,15 @@
         <item name="1000">1000</item>
         <item name="2000">2000</item>
     </string-array>
+    <string-array name="textSize">
+        <item name="14">Small</item>
+        <item name="18">Normal</item>
+        <item name="20">Large</item>
+    </string-array>
+    <string-array name="textSizeValues">
+        <item name="14">14</item>
+        <item name="18">18</item>
+        <item name="20">20</item>
+    </string-array>
 
 </resources>

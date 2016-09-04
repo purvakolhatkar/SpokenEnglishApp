@@ -44,14 +44,14 @@ public class HomeActivity extends AppCompatActivity {
             }
         }); **/
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        /*FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Snackbar.make(view, "2016 © Purva ♥ nits", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
             }
-        });
+        });*/
 
 
 
@@ -127,15 +127,20 @@ public class HomeActivity extends AppCompatActivity {
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
-        //int id = item.getItemId();
+        int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        //if (id == R.id.action_settings) {
+        if (id == R.id.action_settings) {
             Intent i = new Intent(this, SettingsActivity.class);
             startActivityForResult(i, RESULT_SETTINGS);
             return true;
-        //}
+        }
+        if(id==R.id.action_about){
+            Intent i = new Intent(this,AboutActivity.class);
+            startActivityForResult(i, RESULT_SETTINGS);
+            return true;
+        }
 
-        //return super.onOptionsItemSelected(item);
+        return super.onOptionsItemSelected(item);
     }
 }
