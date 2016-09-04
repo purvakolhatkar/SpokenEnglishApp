@@ -13,24 +13,46 @@
     android:orientation="vertical"
     tools:context="com.purva.nits.spokenenglishapp.ViewStory"
     tools:showIn="@layout/activity_view_story">
-<TextView
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:id="@+id/tts_story"/>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/stt_story"/>
+        android:id="@+id/title"
+        />
+
+    <TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:id="@+id/tts_story"
+    android:layout_marginTop="24dp"
+     />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/stt_story"
+        android:layout_below="@+id/tts_story"
+        android:layout_marginTop="24dp" />
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/previous"
-        android:text="Previous"
-        android:onClick="prev"/>
+        android:id="@+id/stt"
+        android:text="Try it yourself"
+        android:layout_below="@+id/tts_story"
+        android:layout_marginTop="24dp"
+        android:onClick="promptSpeechInput"/>
+
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/next"
         android:text="Next"
-        android:onClick="next"/>
+        android:onClick="next"
+        android:layout_gravity="right" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/previous"
+        android:text="Previous"
+        android:onClick="prev"
+        android:layout_gravity="right" />
 </LinearLayout>

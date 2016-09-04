@@ -8,5 +8,28 @@
     tools:showIn="@layout/activity_practice_conversation"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/practiceConv"
+        android:text="Practice with conversations"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/question"
+        android:layout_below="@+id/practiceConv"
+        android:layout_marginTop="24dp"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/answer"
+        android:layout_below="@+id/question"
+        android:layout_marginTop="24dp"/>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/next"
+        android:text="Next"
+        android:layout_below="@+id/answer"
+        android:layout_marginTop="24dp"/>
 </LinearLayout>

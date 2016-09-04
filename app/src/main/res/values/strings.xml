@@ -8,7 +8,7 @@
     <string name="speech_prompt">Say something&#8230;</string>
     <string name="speech_not_supported">Sorry! Your device doesn\'t support speech input</string>
 
-    <string name="story">Read stories (Test TTS)</string>
+    <string name="story">Read stories</string>
     <string name="conversation">Start Conversation</string>
     <string name="title_activity_settings">Settings</string>
 
