@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="speechLocales">
-        <item name="en_US">English (US)</item>
-        <item name="en_GB">English (UK)</item>
+        <item name="en_US">United States</item>
+        <item name="en_GB">United Kingdom</item>
+        <item name="en_IN">India</item>
     </string-array>
     <string-array name="speechLocaleValues">
         <item name="en_US">en_US</item>
         <item name="en_GB">en_GB</item>
+        <item name="en_IN">en_IN</item>
     </string-array>
     <string-array name="speechSpeed">
         <item name="1">Normal</item>

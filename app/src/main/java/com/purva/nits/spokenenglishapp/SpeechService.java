@@ -40,13 +40,12 @@ public class SpeechService extends Service implements TextToSpeech.OnInitListene
 
         tts.setLanguage(new Locale(pref.getString("speechLocale", "en_US")));
         tts.setSpeechRate(Float.parseFloat(pref.getString("speechSpeed","1")));
-        Toast.makeText(getApplicationContext(), "Speech Locale " + pref.getString("speechLocale", "en_US") +
+        /*Toast.makeText(getApplicationContext(), "Speech Locale " + pref.getString("speechLocale", "en_US") +
                 "\nSpeed " + pref.getString("speechSpeed","1") , Toast.LENGTH_SHORT).show();
-        Toast.makeText(getApplicationContext(),"Word pause interval "+pref.getString("wordPause","0"),Toast.LENGTH_SHORT).show();
+        Toast.makeText(getApplicationContext(),"Word pause interval "+pref.getString("wordPause","0"),Toast.LENGTH_SHORT).show();*/
 
-        if (isInit != null) {
-            if (isInit)
-                speak();
+        if (isInit != null && isInit) {
+            speak();
         }
 
         handler.postDelayed(new Runnable() {
@@ -72,6 +71,7 @@ public class SpeechService extends Service implements TextToSpeech.OnInitListene
     public void onInit(int status) {
         if (status == TextToSpeech.SUCCESS) {
             SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+            Toast.makeText(getApplicationContext(),"Reading...",Toast.LENGTH_SHORT).show();
             int result = tts.setLanguage(new Locale(pref.getString("speechLocale", "en_US")));
             if (result != TextToSpeech.LANG_MISSING_DATA && result != TextToSpeech.LANG_NOT_SUPPORTED) {
                 speak();

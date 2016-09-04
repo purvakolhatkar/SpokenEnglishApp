@@ -11,6 +11,7 @@ import android.util.TypedValue;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.google.android.gms.common.api.GoogleApiClient;
@@ -53,8 +54,8 @@ public class ViewConversation extends AppCompatActivity {
         conv.moveToFirst();
         System.out.println("Sentence last"+size);
         final TextView[] listSentence=new TextView[size];
-        LinearLayout layout=(LinearLayout)findViewById(R.id.content_conversation_select);
-        LinearLayout.LayoutParams lp= new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+        LinearLayout layout=(LinearLayout) findViewById(R.id.conversationLayout);
+//        LinearLayout.LayoutParams lp= new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
         String line = "";
         conv.moveToFirst();
         for (int i = 0; i < size && conv.isAfterLast()== false; i++) {
@@ -62,7 +63,8 @@ public class ViewConversation extends AppCompatActivity {
             listSentence[i].setId(i+1);
             line=conv.getString(conv.getColumnIndex("person"))+": "+conv.getString(conv.getColumnIndex("sentences"));
             listSentence[i].setText(line);
-            listSentence[i].setTextSize(TypedValue.COMPLEX_UNIT_DIP, 25);
+            listSentence[i].setTextAppearance(this, R.style.fontForViewConversation);
+            //listSentence[i].setTextSize(TypedValue.COMPLEX_UNIT_DIP, 25);
             /////Set alternate colors by even/odd logic
             if((i&1)==0){
                 listSentence[i].setTextColor(Color.BLACK);
@@ -82,10 +84,8 @@ public class ViewConversation extends AppCompatActivity {
             }); 
             conv.moveToNext();
         }
-        Button btnPlayConv= new Button(this);
-        btnPlayConv.setText("Play Conversation");
-        btnPlayConv.setHeight(64);
-        layout.addView(btnPlayConv);
+
+        Button btnPlayConv= (Button) findViewById(R.id.playConversation);
         String line1 = "";
         conv.moveToFirst();
         for (int i = 0; i < size && conv.isAfterLast()== false; i++) {
