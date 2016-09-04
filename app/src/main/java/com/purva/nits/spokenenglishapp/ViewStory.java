@@ -11,9 +11,16 @@ import android.widget.TextView;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
 
 public class ViewStory extends AppCompatActivity {
-
+    BufferedReader storyReader;
+/**    String prv="";
+    String nxt="";
+    String curr="";**/
+    int prv,nxt,curr,index;
+    TextView tv1,tv2;
+    ArrayList<String> story=new ArrayList<>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -21,46 +28,52 @@ public class ViewStory extends AppCompatActivity {
         Bundle extras = getIntent().getExtras();
         String  title= extras.getString("EXTRA_TO_STORY");
         AssetManager assetManager = getAssets();
-        final TextView tv1=(TextView)findViewById(R.id.tts_story);
-        TextView tv2= (TextView)findViewById(R.id.stt_story);
         Button next=(Button)findViewById(R.id.next);
         Button previous=(Button)findViewById(R.id.previous);
-
+        tv1=(TextView)findViewById(R.id.tts_story);
+        tv2= (TextView)findViewById(R.id.stt_story);
+        index=0;
         try {
-            BufferedReader storyReader = new BufferedReader(new InputStreamReader(assetManager.open(title + ".txt")));
-            while (true) {
+            storyReader = new BufferedReader(new InputStreamReader(assetManager.open(title + ".txt")));
                 String temp;
-                final String prev;
 
-                if ((temp = storyReader.readLine()) != null) {
-                    tv1.setText(temp);
-                    prev = temp;
-                    final String nxt = storyReader.readLine();
-                    next.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            if (nxt != null) {
-                                tv1.setText(nxt);
-                            }
-                        }
-                    });
-                    previous.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            if (prev != null) {
-                                tv1.setText(prev);
-                            }
-                        }
-                    });
-                } else {
-                        break;
+                while ((temp = storyReader.readLine()) != null) {
+                    story.add(temp);
                 }
+            if (!story.isEmpty()) {
+                tv1.setText(story.get(0));
+                prv = 0;
+                curr = 0;
+                nxt = 1;
             }
+
         }
+
         catch (IOException e)
         {
             e.printStackTrace();
             Log.d("ERROR_MSG","Error in reading from file");
+        }
+    }
+
+    public void prev(View view){
+        if (prv >= 0) {
+
+            tv1.setText(story.get(prv));
+            nxt=curr;
+            curr=prv;
+            prv=prv-1;
+
+        }
+
+    }
+
+    public void next(View view){
+        if (nxt < story.size()) {
+            tv1.setText(story.get(nxt));
+            curr=nxt;
+            nxt=curr+1;
+            prv=curr-1;
         }
     }
 }
