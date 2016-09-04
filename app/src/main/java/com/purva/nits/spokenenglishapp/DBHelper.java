@@ -13,6 +13,8 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 
 public class DBHelper extends SQLiteOpenHelper{
+    int countQ;
+
 
     public static final String DATABASE_NAME = "SpokenEnglish.db";
     private Context activity_context;
@@ -31,6 +33,7 @@ public class DBHelper extends SQLiteOpenHelper{
     public void onCreate(SQLiteDatabase db) {
         db.execSQL("create table conversationTable "+"(conversationId integer primary key,type text,title text)");
         db.execSQL("create table dialogueTable "+"(conversationId integer,sentenceId integer, sentences text,person text,foreign key(conversationId) references conversationTable(conversationId))");
+        db.execSQL("create table questionTable "+"(id integer primary key,question text,answer text)");
         Log.d("Insert:","...Inserting...");
         //db.close();
         try {
@@ -57,6 +60,20 @@ public class DBHelper extends SQLiteOpenHelper{
                 dialogueListReader.close();  ///Close to reopen from beginning
             }
             conversationListReader.close();
+            BufferedReader questionReader = new BufferedReader(new InputStreamReader(assetManager.open("questionDump.csv")));
+            String q;
+             countQ=0;
+            while((q=questionReader.readLine())!=null)
+            {
+                String[] qa=q.split(",");
+                System.out.println("Inserting from file::"+q);
+
+                int id=Integer.parseInt(qa[0]);
+                db.execSQL("insert into questionTable (id,question,answer) values ("+id+",'"+qa[1]+"','"+qa[2]+"')");
+                countQ++;
+            }
+            System.out.println("CountQ::"+countQ);
+            questionReader.close();
         }
         catch (FileNotFoundException e)
         {
@@ -72,6 +89,7 @@ public class DBHelper extends SQLiteOpenHelper{
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         db.execSQL("DROP TABLE IF EXISTS conversationTable");
         db.execSQL("DROP TABLE IF EXISTS dialogueTable");
+        db.execSQL("DROP TABLE IF EXISTS questionTable");
         onCreate(db);
     }
     //Insert into conversationTable and dialogueTable table
@@ -131,4 +149,35 @@ public class DBHelper extends SQLiteOpenHelper{
         db2.close();
         return conversationId;
     }
+   public int getCountQ(){
+
+       return countQ;
+   }
+    public void setCountQ() {
+        SQLiteDatabase db2=this.getReadableDatabase();
+        Cursor cursor=db2.rawQuery("select max(id) from questionTable",null);
+        cursor.moveToFirst();
+        this.countQ=cursor.getInt(0);
+
+    }
+
+    public String[] getQuestionAnswer(int id)
+    {
+        setCountQ();
+        System.out.println("Count in getQA::"+getCountQ()+" "+id);
+        if(id<=getCountQ()) {
+            SQLiteDatabase db2 = this.getReadableDatabase();
+            System.out.println("Id found");
+            Cursor cursor = db2.rawQuery("select * from questionTable where id=" + id, null);
+            String[] qa = new String[3];
+            cursor.moveToFirst();
+            qa[0] = cursor.getString(0);
+            qa[1] = cursor.getString(1);
+            qa[2] = cursor.getString(2);
+            return qa;
+        }
+        else
+            return null;
+    }
+
 }

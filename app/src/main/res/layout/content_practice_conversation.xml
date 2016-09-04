@@ -28,8 +28,34 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:id="@+id/reply"
+        android:text="Reply"
+        android:layout_below="@+id/answer"
+        android:layout_marginTop="24dp"
+        android:onClick="promptSpeechInput"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/replyA"
+        android:layout_below="@+id/reply"
+        android:layout_marginTop="24dp"/>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:id="@+id/next"
         android:text="Next"
-        android:layout_below="@+id/answer"
-        android:layout_marginTop="24dp"/>
+        android:layout_below="@+id/reply"
+        android:layout_marginTop="24dp"
+        android:onClick="nextQ"
+        android:layout_gravity="right" />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/prev"
+        android:text="Previous"
+        android:layout_below="@+id/next"
+        android:layout_marginTop="24dp"
+        android:onClick="previousQ"
+        android:layout_gravity="right" />
+
 </LinearLayout>

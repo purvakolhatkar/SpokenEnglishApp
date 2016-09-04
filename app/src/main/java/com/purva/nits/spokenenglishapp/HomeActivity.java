@@ -70,6 +70,10 @@ public class HomeActivity extends AppCompatActivity {
         Intent intent = new Intent(this, StorySelect.class);
         startActivity(intent);
     }
+    public void startDialogue(View view){
+        Intent intent = new Intent(this, PracticeConversation.class);
+        startActivity(intent);
+    }
     @Override
     protected void onDestroy() {
         super.onDestroy();
