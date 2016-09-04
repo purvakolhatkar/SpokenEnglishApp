@@ -19,7 +19,8 @@
         android:layout_centerHorizontal="true"
         style="@style/Base.TextAppearance.AppCompat.Title"
         android:id="@+id/welcomeText"
-        android:elegantTextHeight="false" />
+        android:elegantTextHeight="false"
+        android:textSize="24dp" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -27,7 +28,7 @@
         android:text="@string/storiesSummary"
         style="@style/Base.TextAppearance.AppCompat.Headline"
         android:id="@+id/storiesSummary"
-        android:layout_marginTop="38dp"
+        android:layout_marginTop="207dp"
         android:layout_below="@+id/welcomeText"
         android:layout_centerHorizontal="true" />
 
@@ -57,39 +58,42 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/conversation"
+        android:text="@string/conversationLearn"
         android:id="@+id/conversationButton"
         android:onClick="startConversationActivity"
         style="@style/Base.Widget.AppCompat.Button.Colored"
+        android:background="@color/colorPrimary"
         android:layout_below="@+id/conversationSummary"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
-        android:background="@color/colorPrimary" />
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Practice with conversations"
-        android:id="@+id/practiceConv"
-        style="@style/Base.TextAppearance.AppCompat.Headline"
-        android:layout_marginTop="47dp"
-        android:layout_below="@+id/conversationButton"
-        android:layout_alignLeft="@+id/welcomeText"
-        android:layout_alignStart="@+id/welcomeText" />
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Practice Conversations"
+        android:text="@string/conversationPractice"
         android:id="@+id/practiceButton"
         android:onClick="startDialogue"
         style="@style/Base.Widget.AppCompat.Button.Colored"
-        android:layout_below="@+id/practiceConv"
+        android:background="@color/colorPrimary"
+        android:layout_below="@+id/conversationButton"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:background="@color/colorPrimary" />
+        android:layout_alignParentEnd="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/welcomeNote"
+        android:text="@string/welcomeNote"
+        android:textSize="20dp"
+        android:layout_below="@+id/welcomeText"
+        android:layout_marginTop="42dp"
+        android:paddingLeft="26dp"
+        android:paddingRight="20dp"
+        android:singleLine="false"
+        android:textColor="@color/welcomeNoteFontColor" />
 
 </RelativeLayout>

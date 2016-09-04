@@ -4,4 +4,5 @@
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#ff404d</color>
     <color name="answer_text">#1bbf68</color>
+    <color name="welcomeNoteFontColor">#2692ff</color>
 </resources>

@@ -3,26 +3,27 @@
     <string name="action_settings">Settings</string>
     <string name="action_about">About</string>
 
+    <!-- Home Activity -->
     <string name="welcomeText">Welcome to Spoken English App!</string>
-    <string name="storiesSummary">Practice with Short Stories</string>
-    <string name="conversationSummary">Learn everyday conversations</string>
-    <string name="speech_prompt">Say something&#8230;</string>
+    <string name="storiesSummary">Listen And Repeat</string>
+    <string name="conversationSummary">Having Everyday Conversations</string>
     <string name="speech_not_supported">Sorry! Your device doesn\'t support speech input</string>
+    <string name="story">Short Stories</string>
+    <string name="conversationLearn">Learn</string>
+    <string name="conversationPractice">Practice</string>
+    <string name="welcomeNote">Speak fluent English by practicing everyday.\nLearn with simple short stories and day to day coversations.\nMore to come...
+    </string>
 
-    <string name="story">Read stories</string>
-    <string name="conversation">Start Conversation</string>
+    <!-- General -->
+    <string name="speech_prompt">Say something&#8230;</string>
+
+    <!-- Strings related to Settings -->
+    <string name="pref_header_speech">Speech</string>
     <string name="title_activity_settings">Settings</string>
-
     <string name="locale_setting_title">Speech Locale</string>
     <string name="speed_setting_title">Speech Speed</string>
     <string name="pause_setting_title">Word Pause Interval</string>
     <string name="text_setting_title">Text Size</string>
-
-    <!-- Strings related to Settings -->
-    <string name="pref_header_speech">Speech</string>
-
-
-    <!-- Example settings for Notifications -->
     <string name="pref_header_text">Text</string>
 
     <string name="about_title">Spoken English v1.0</string>
