@@ -14,10 +14,13 @@
     <string name="moreButton">More</string>
     <string name="welcomeNote">Speak fluent English by practicing everyday.\nLearn with simple short stories and day to day coversations.\nMore to come&#8230;
     </string>
+    <string name="conversationPracticePage">Practice with below conversations</string>
 
     <!-- General -->
     <string name="speech_prompt">Say something&#8230;</string>
     <string name="ttsTip">Tap on Text to Listen</string>
+    <string name="prevButton"><![CDATA[&lt; Previous]]></string>
+    <string name="nextButton"><![CDATA[Next &lt;]]></string>
 
     <!-- Strings related to Settings -->
     <string name="pref_header_speech">Speech</string>
@@ -30,5 +33,8 @@
 
     <string name="about_title">Spoken English v1.0</string>
     <string name="about_desc">Designed &amp; Developed by\nPurva Kolhatkar\nNitish N Sershiya\n\n© 2016</string>
+    <string name="speakButton">Speak Burron</string>
+    <string name="speakButtonCaption">Tap to Speak</string>
+    <string name="placeholder">Placeholder</string>
 
 </resources>

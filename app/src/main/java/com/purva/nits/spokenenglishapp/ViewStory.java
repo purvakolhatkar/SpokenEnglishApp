@@ -3,7 +3,9 @@ package com.purva.nits.spokenenglishapp;
 import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.res.AssetManager;
+import android.preference.PreferenceManager;
 import android.speech.RecognizerIntent;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
@@ -28,7 +30,7 @@ public class ViewStory extends AppCompatActivity {
     String nxt="";
     String curr="";**/
     int prv,nxt,curr,index;
-    TextView tv1,tv2,tv3;
+    TextView ttsStoryView, sttStoryView, storyTitleView;
     ArrayList<String> story=new ArrayList<>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,12 +42,17 @@ public class ViewStory extends AppCompatActivity {
         AssetManager assetManager = getAssets();
         Button next=(Button)findViewById(R.id.next);
         Button previous=(Button)findViewById(R.id.previous);
-        tv1=(TextView)findViewById(R.id.tts_story);
-        tv2= (TextView)findViewById(R.id.stt_story);
-        tv3= (TextView)findViewById(R.id.title);
-        tv3.setText(title);
-       // tv2.setClickable(true);
-        /**tv2.setOnClickListener(new View.OnClickListener() {             //
+
+        SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+
+        ttsStoryView =(TextView)findViewById(R.id.tts_story);
+        ttsStoryView.setTextSize(Float.parseFloat(pref.getString("textSize","18")));
+        sttStoryView = (TextView)findViewById(R.id.stt_story);
+        sttStoryView.setTextSize(Float.parseFloat(pref.getString("textSize","18")));
+        storyTitleView = (TextView)findViewById(R.id.storyTitle);
+        storyTitleView.setText(title);
+       // sttStoryView.setClickable(true);
+        /**sttStoryView.setOnClickListener(new View.OnClickListener() {             //
             @Override                                                          //
             public void onClick(View view) {
                 promptSpeechInput();
@@ -60,18 +67,18 @@ public class ViewStory extends AppCompatActivity {
                     story.add(temp);
                 }
             if (!story.isEmpty()) {
-                tv1.setText(story.get(0));
+                ttsStoryView.setText(story.get(0));
                 prv = 0;
                 curr = 0;
                 nxt = 1;
             }
-            tv1.setClickable(true);
-            tv1.setOnClickListener(new View.OnClickListener(){
+            ttsStoryView.setClickable(true);
+            ttsStoryView.setOnClickListener(new View.OnClickListener(){
                 @Override
                 public void onClick(View view) {
                     Context context = getApplicationContext();
                     speechServiceIntent = new Intent(context, SpeechService.class);
-                    speechServiceIntent.putExtra(SpeechService.EXTRA_TO_SPEAK, tv1.getText());
+                    speechServiceIntent.putExtra(SpeechService.EXTRA_TO_SPEAK, ttsStoryView.getText());
                     context.startService(speechServiceIntent);
                 }
             });
@@ -95,11 +102,11 @@ public class ViewStory extends AppCompatActivity {
     public void prev(View view){
         if (prv >= 0) {
 
-            tv1.setText(story.get(prv));
+            ttsStoryView.setText(story.get(prv));
             nxt=curr;
             curr=prv;
             prv=prv-1;
-            tv2.setText("");
+            sttStoryView.setText("");
         }
         Context context = getApplicationContext();
         if (speechServiceIntent!=null)
@@ -109,11 +116,11 @@ public class ViewStory extends AppCompatActivity {
 
     public void next(View view){
         if (nxt < story.size()) {
-            tv1.setText(story.get(nxt));
+            ttsStoryView.setText(story.get(nxt));
             curr=nxt;
             nxt=curr+1;
             prv=curr-1;
-            tv2.setText("");
+            sttStoryView.setText("");
         }
         Context context = getApplicationContext();
         if (speechServiceIntent!=null)
@@ -146,7 +153,7 @@ public class ViewStory extends AppCompatActivity {
                 if (resultCode == RESULT_OK && null != data) {
                     ArrayList<String> result =
                             data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
-                    tv2.setText(result.get(0));
+                    sttStoryView.setText(result.get(0));
                 }
                 break;
             }

@@ -6,6 +6,7 @@ import android.content.res.AssetManager;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
 import android.view.View;
@@ -15,13 +16,14 @@ import android.widget.ListView;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class StorySelect extends ListActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.content_story_select);
+        setContentView(R.layout.activity_story_select);
         try {
             AssetManager assetManager = getAssets();
             BufferedReader storyListReader = new BufferedReader(new InputStreamReader(assetManager.open("Titles.txt")));
@@ -31,13 +33,8 @@ public class StorySelect extends ListActivity {
             int i=0;
             while ((temp=storyListReader.readLine())!=null)
             {
-
                 String[] tempS=temp.split(",");
-                for(int j=0;j<tempS.length;j++)
-                {
-                    story.add(tempS[j]);
-
-                }
+                Collections.addAll(story, tempS);
             }
             ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
                     android.R.layout.simple_list_item_1, story);
@@ -57,7 +54,7 @@ public class StorySelect extends ListActivity {
 
         super.onListItemClick(l, v, position, id);
         // ListView Clicked item index
-        int itemPosition = position;
+        //int itemPosition = position;
         // ListView Clicked item value
         String itemValue = (String) l.getItemAtPosition(position);
         Intent toStory_intent = new Intent(this, ViewStory.class);

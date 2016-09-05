@@ -17,25 +17,23 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/title"
-        android:text="story_title"
+        android:id="@+id/storyTitle"
+        android:text="@string/placeholder"
         style="@style/Base.TextAppearance.AppCompat.Title"
         android:layout_gravity="center_horizontal"
         android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:textColor="@color/titles" />
 
     <TextView
     android:layout_width="133dp"
     android:layout_height="wrap_content"
     android:id="@+id/tts_story"
-        android:text="story appears here"
+        android:text="@string/placeholder"
         style="@style/Base.TextAppearance.AppCompat.Body2"
         android:layout_gravity="fill_horizontal|center_horizontal"
-        android:layout_below="@+id/title"
-        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/storyTitle"
         android:layout_alignParentStart="true"
-        android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
         android:layout_above="@+id/previous" />
 
@@ -43,23 +41,21 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/previous"
-        android:text="&lt; Previous"
+        android:text="@string/prevButton"
         android:onClick="prev"
         style="@style/Base.Widget.AppCompat.Button.Borderless"
         android:layout_centerVertical="true"
-        android:layout_alignLeft="@+id/tts_story"
         android:layout_alignStart="@+id/tts_story" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/next"
-        android:text="Next >"
+        android:text="@string/nextButton"
         android:onClick="next"
         style="@style/Base.Widget.AppCompat.Button.Borderless"
         android:layout_alignBaseline="@+id/previous"
         android:layout_alignBottom="@+id/previous"
-        android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
 
     <TextView
@@ -70,8 +66,6 @@
         android:layout_centerHorizontal="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentRight="true"
         android:layout_below="@+id/previous"
         android:layout_above="@+id/imageButton" />
 
@@ -84,13 +78,14 @@
         style="@style/Base.Widget.AppCompat.ImageButton"
         android:background="@null"
         android:layout_above="@+id/micBtnLabel"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:contentDescription="@string/speakButton"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="Tap to Speak"
+        android:text="@string/speakButtonCaption"
         android:id="@+id/micBtnLabel"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true" />

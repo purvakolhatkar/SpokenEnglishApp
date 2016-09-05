@@ -9,4 +9,6 @@
     <color name="heading_title_back">#b24cc8fd</color>
     <color name="home_tiles">#89007fc3</color>
     <color name="home_title_button_text_color">#ffffff</color>
+    <color name="titles">#676767</color>
+    <color name="white">#ffffff</color>
 </resources>

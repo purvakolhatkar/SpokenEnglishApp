@@ -125,7 +125,7 @@ public class DBHelper extends SQLiteOpenHelper{
         return cursor;
     }
 
-    public ArrayList getConversationTitles()
+    public ArrayList<String> getConversationTitles()
     {
         ArrayList<String> conversationTitles= new ArrayList<String>();
         SQLiteDatabase db2=this.getReadableDatabase();
@@ -158,7 +158,7 @@ public class DBHelper extends SQLiteOpenHelper{
         Cursor cursor=db2.rawQuery("select max(id) from questionTable",null);
         cursor.moveToFirst();
         this.countQ=cursor.getInt(0);
-
+        cursor.close();
     }
 
     public String[] getQuestionAnswer(int id)
@@ -174,6 +174,7 @@ public class DBHelper extends SQLiteOpenHelper{
             qa[0] = cursor.getString(0);
             qa[1] = cursor.getString(1);
             qa[2] = cursor.getString(2);
+            cursor.close();
             return qa;
         }
         else

@@ -23,7 +23,7 @@ public class ConversationSelect extends ListActivity {
         DBHelper dbHelper=new DBHelper(this);
         final ArrayList<String> convs=dbHelper.getConversationTitles();
         TextView textView=(TextView) findViewById(R.id.conversationListTitle);
-        textView.setText("Practice with below conversations");
+        textView.setText(R.string.conversationPracticePage);
         String[] values=new String[convs.size()];
         for(int i=0;i<convs.size();i++)
         {
@@ -63,7 +63,7 @@ public class ConversationSelect extends ListActivity {
         }**/
         //textView.setText(line);
         /**ArrayList<String> conv=dbHelper.getDialogue(1);
-       TextView textView=(TextView) findViewById(R.id.tv1);
+       TextView textView=(TextView) findViewById(R.id.ttsStoryView);
         String line="";
         for (int i=0;i<conv.size();i++)
         {
@@ -88,7 +88,7 @@ public class ConversationSelect extends ListActivity {
 
         super.onListItemClick(l, v, position, id);
         // ListView Clicked item index
-        int itemPosition = position;
+        //int itemPosition = position;
         DBHelper dbHelper=new DBHelper(this);
         // ListView Clicked item value
         String itemValue = (String) l.getItemAtPosition(position);

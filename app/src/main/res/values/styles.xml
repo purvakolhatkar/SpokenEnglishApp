@@ -25,4 +25,8 @@
         <item name="android:buttonStyle">@style/Base.Widget.AppCompat.Button.Borderless</item>
     </style>
 
+    <style name="SplashTheme" parent="Theme.AppCompat.NoActionBar">
+        <item name="android:windowBackground">@drawable/background_splash</item>
+    </style>
+
 </resources>
