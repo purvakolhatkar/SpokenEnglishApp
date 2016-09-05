@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="speechLocales">
+        <item name="en_US">United States</item>
+        <item name="en_GB">United Kingdom</item>
+        <item name="en_IN">India</item>
+    </string-array>
+    <string-array name="speechLocaleValues">
+        <item name="en_US">en_US</item>
+        <item name="en_GB">en_GB</item>
+        <item name="en_IN">en_IN</item>
+    </string-array>
+    <string-array name="speechSpeed">
+        <item name="1">Normal</item>
+        <item name="0.75">Medium</item>
+        <item name="0.5">Slow</item>
+    </string-array>
+    <string-array name="speechSpeedValues">
+        <item name="1">1</item>
+        <item name="0.75">0.75</item>
+        <item name="0.5">0.5</item>
+    </string-array>
+    <string-array name="wordPause">
+        <item name="0">None</item>
+        <item name="1000">1 Second</item>
+        <item name="2000">2 Seconds</item>
+    </string-array>
+    <string-array name="wordPauseValues">
+        <item name="0">0</item>
+        <item name="1000">1000</item>
+        <item name="2000">2000</item>
+    </string-array>
+    <string-array name="textSize">
+        <item name="14">Small</item>
+        <item name="18">Normal</item>
+        <item name="20">Large</item>
+    </string-array>
+    <string-array name="textSizeValues">
+        <item name="14">14</item>
+        <item name="18">18</item>
+        <item name="20">20</item>
+    </string-array>
+
+</resources>
