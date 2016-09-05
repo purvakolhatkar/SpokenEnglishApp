@@ -110,4 +110,22 @@ public class ViewConversation extends AppCompatActivity {
 
         //textView.setText(line);
     }
+    @Override
+    public void onPause(){
+        super.onPause();
+        Context context = getApplicationContext();
+        context.stopService(speechServiceIntent);
+    }
+    @Override
+    public void onResume() {
+        super.onResume();
+
+    }
+    @Override
+    public void onDestroy(){
+        super.onDestroy();
+        Context context = getApplicationContext();
+        context.stopService(speechServiceIntent);
+    }
+
 }

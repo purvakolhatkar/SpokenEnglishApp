@@ -92,6 +92,8 @@ public class ViewStory extends AppCompatActivity {
             prv=prv-1;
             tv2.setText("");
         }
+        Context context = getApplicationContext();
+        context.stopService(speechServiceIntent);
 
     }
 
@@ -103,6 +105,8 @@ public class ViewStory extends AppCompatActivity {
             prv=curr-1;
             tv2.setText("");
         }
+        Context context = getApplicationContext();
+        context.stopService(speechServiceIntent);
     }
     //////////////Speech to Text/////////////////
     public void promptSpeechInput(View view){
@@ -136,5 +140,23 @@ public class ViewStory extends AppCompatActivity {
                 break;
             }
         }
+    }
+
+    @Override
+    public void onPause(){
+        super.onPause();
+        Context context = getApplicationContext();
+        context.stopService(speechServiceIntent);
+    }
+    @Override
+    public void onResume() {
+        super.onResume();
+
+    }
+        @Override
+    public void onDestroy(){
+        super.onDestroy();
+        Context context = getApplicationContext();
+        context.stopService(speechServiceIntent);
     }
         }

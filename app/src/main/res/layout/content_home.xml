@@ -28,8 +28,7 @@
         android:text="@string/storiesSummary"
         style="@style/Base.TextAppearance.AppCompat.Headline"
         android:id="@+id/storiesSummary"
-        android:layout_marginTop="207dp"
-        android:layout_below="@+id/welcomeText"
+        android:layout_centerVertical="true"
         android:layout_centerHorizontal="true" />
 
     <Button
@@ -51,9 +50,12 @@
         android:text="@string/conversationSummary"
         android:id="@+id/conversationSummary"
         style="@style/Base.TextAppearance.AppCompat.Headline"
+        android:layout_marginTop="36dp"
         android:layout_below="@+id/storyButton"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="53dp" />
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
     <Button
         android:layout_width="wrap_content"
@@ -89,11 +91,12 @@
         android:id="@+id/welcomeNote"
         android:text="@string/welcomeNote"
         android:textSize="20dp"
-        android:layout_below="@+id/welcomeText"
-        android:layout_marginTop="42dp"
         android:paddingLeft="26dp"
         android:paddingRight="20dp"
         android:singleLine="false"
-        android:textColor="@color/welcomeNoteFontColor" />
+        android:textColor="@color/welcomeNoteFontColor"
+        android:layout_below="@+id/welcomeText"
+        android:layout_alignRight="@+id/conversationSummary"
+        android:layout_alignEnd="@+id/conversationSummary" />
 
 </RelativeLayout>
