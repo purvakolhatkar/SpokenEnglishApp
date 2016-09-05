@@ -5,13 +5,14 @@
 
     <!-- Home Activity -->
     <string name="welcomeText">Welcome to Spoken English App!</string>
-    <string name="storiesSummary">Listen And Repeat</string>
-    <string name="conversationSummary">Having Everyday Conversations</string>
+    <string name="storiesSummary">Listen &amp; Repeat</string>
+    <string name="conversationSummary">Conversations</string>
     <string name="speech_not_supported">Sorry! Your device doesn\'t support speech input</string>
-    <string name="story">Short Stories</string>
+    <string name="story">Stories</string>
     <string name="conversationLearn">Learn</string>
     <string name="conversationPractice">Practice</string>
-    <string name="welcomeNote">Speak fluent English by practicing everyday.\nLearn with simple short stories and day to day coversations.\nMore to come...
+    <string name="moreButton">More</string>
+    <string name="welcomeNote">Speak fluent English by practicing everyday.\nLearn with simple short stories and day to day coversations.\nMore to come&#8230;
     </string>
 
     <!-- General -->

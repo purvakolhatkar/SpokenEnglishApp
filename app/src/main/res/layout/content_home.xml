@@ -5,22 +5,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="com.purva.nits.spokenenglishapp.HomeActivity"
-    tools:showIn="@layout/activity_home">
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/welcomeText"
-        android:layout_centerHorizontal="true"
-        style="@style/Base.TextAppearance.AppCompat.Title"
-        android:id="@+id/welcomeText"
-        android:elegantTextHeight="false"
-        android:textSize="24dp" />
+    tools:showIn="@layout/activity_home"
+    android:background="@drawable/ganesh001">
 
     <TextView
         android:layout_width="wrap_content"
@@ -28,74 +17,96 @@
         android:text="@string/storiesSummary"
         style="@style/Base.TextAppearance.AppCompat.Headline"
         android:id="@+id/storiesSummary"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true" />
+        android:background="@color/heading_title_back"
+        android:padding="16dp"
+        android:layout_above="@+id/storyButton"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/story"
         android:id="@+id/storyButton"
-        style="@style/Base.Widget.AppCompat.Button.Colored"
-        android:layout_below="@+id/storiesSummary"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:onClick="startStory"/>
+        android:drawableTop="@drawable/ic_library_books_black_48dp"
+        style="@style/Base.Widget.AppCompat.Button.Borderless"
+        android:onClick="startStory"
+        android:padding="24dp"
+        android:background="@color/home_tiles"
+        android:layout_centerVertical="true"
+        android:layout_alignLeft="@+id/storiesSummary"
+        android:layout_alignStart="@+id/storiesSummary" />
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/conversationSummary"
         android:id="@+id/conversationSummary"
         style="@style/Base.TextAppearance.AppCompat.Headline"
-        android:layout_marginTop="36dp"
-        android:layout_below="@+id/storyButton"
+        android:background="@color/heading_title_back"
+        android:padding="16dp"
+        android:layout_above="@+id/conversationButton"
+        android:layout_alignLeft="@+id/storyButton"
+        android:layout_alignStart="@+id/storyButton"
         android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:textAlignment="center" />
+        android:layout_alignParentEnd="true" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/conversationLearn"
         android:id="@+id/conversationButton"
+        android:drawableTop="@drawable/ic_chat_black_48dp"
         android:onClick="startConversationActivity"
-        style="@style/Base.Widget.AppCompat.Button.Colored"
-        android:layout_below="@+id/conversationSummary"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        style="@style/Base.Widget.AppCompat.Button.Borderless"
+        android:padding="24dp"
+        android:background="@color/home_tiles"
+        android:layout_alignParentBottom="true"
+        android:layout_alignLeft="@+id/conversationSummary"
+        android:layout_alignStart="@+id/conversationSummary" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/conversationPractice"
         android:id="@+id/practiceButton"
+        android:drawableTop="@drawable/ic_speaker_notes_black_48dp"
         android:onClick="startDialogue"
-        style="@style/Base.Widget.AppCompat.Button.Colored"
-        android:layout_below="@+id/conversationButton"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        style="@style/Base.Widget.AppCompat.Button.Borderless"
+        android:padding="24dp"
+        android:background="@color/home_tiles"
+        android:layout_alignParentBottom="true"
+        android:layout_toRightOf="@+id/conversationButton"
+        android:layout_toEndOf="@+id/conversationButton" />
 
-    <TextView
+    <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/welcomeNote"
-        android:text="@string/welcomeNote"
-        android:textSize="20dp"
-        android:paddingLeft="26dp"
-        android:paddingRight="20dp"
-        android:singleLine="false"
-        android:textColor="@color/welcomeNoteFontColor"
-        android:layout_above="@+id/storiesSummary"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginBottom="59dp" />
+        android:id="@+id/moreDummy1"
+        android:text="@string/moreButton"
+        android:drawableTop="@android:drawable/ic_input_add"
+        style="@style/Base.Widget.AppCompat.Button.Borderless"
+        android:padding="30dp"
+        android:background="@color/home_tiles"
+        android:layout_alignTop="@+id/storyButton"
+        android:layout_alignBottom="@+id/storyButton"
+        android:layout_toLeftOf="@+id/moreDummy2"
+        android:layout_toRightOf="@+id/storyButton"
+        android:layout_toEndOf="@+id/storyButton" />
+
+    <Button
+        style="@style/Base.Widget.AppCompat.Button.Borderless"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/moreDummy2"
+        android:text="@string/moreButton"
+        android:padding="30dp"
+        android:drawableTop="@android:drawable/ic_input_add"
+        android:layout_toRightOf="@+id/practiceButton"
+        android:layout_toEndOf="@+id/practiceButton"
+        android:layout_alignBottom="@+id/practiceButton"
+        android:background="@color/home_tiles"
+        android:layout_alignTop="@+id/practiceButton" />
 
 </RelativeLayout>

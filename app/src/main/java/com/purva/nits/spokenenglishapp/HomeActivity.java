@@ -44,14 +44,23 @@ public class HomeActivity extends AppCompatActivity {
             }
         }); **/
 
-        /*FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
+        Button moreButton = (Button) findViewById(R.id.moreDummy1);
+        moreButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "2016 © Purva ♥ nits", Snackbar.LENGTH_LONG)
+                Snackbar.make(view, "Coming soon...", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
             }
-        });*/
+        });
+
+        moreButton = (Button) findViewById(R.id.moreDummy2);
+        moreButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Snackbar.make(view, "Coming soon...", Snackbar.LENGTH_LONG)
+                        .setAction("Action", null).show();
+            }
+        });
 
 
 
