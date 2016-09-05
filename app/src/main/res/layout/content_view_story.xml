@@ -95,6 +95,18 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true" />
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="@string/ttsTip"
+        android:id="@+id/tipOnStory"
+        android:layout_alignTop="@+id/previous"
+        android:layout_centerHorizontal="true"
+        android:textStyle="italic"
+        android:textColor="@color/ttsTipText" />
+
+
     <!--Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

@@ -16,6 +16,7 @@
 
     <!-- General -->
     <string name="speech_prompt">Say something&#8230;</string>
+    <string name="ttsTip">Tap on Text to Listen</string>
 
     <!-- Strings related to Settings -->
     <string name="pref_header_speech">Speech</string>

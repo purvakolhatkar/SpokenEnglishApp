@@ -54,9 +54,11 @@
         android:onClick="previousQ"
         android:layout_gravity="right"
         style="@style/Base.Widget.AppCompat.Button.Borderless"
-        android:layout_alignTop="@+id/next"
-        android:layout_alignLeft="@+id/practiceConv"
-        android:layout_alignStart="@+id/practiceConv" />
+        android:layout_centerVertical="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_toLeftOf="@+id/reply"
+        android:layout_toStartOf="@+id/reply" />
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -66,8 +68,9 @@
         android:layout_gravity="right"
         style="@style/Base.Widget.AppCompat.Button.Borderless"
         android:layout_centerVertical="true"
-        android:layout_toRightOf="@+id/reply"
-        android:layout_toEndOf="@+id/reply" />
+        android:layout_toRightOf="@+id/tipOnPractice"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -103,5 +106,16 @@
         android:layout_marginBottom="57dp"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="@string/ttsTip"
+        android:id="@+id/tipOnPractice"
+        android:textStyle="italic"
+        android:layout_above="@+id/prev"
+        android:layout_centerHorizontal="true"
+        android:textColor="@color/ttsTipText" />
 
 </RelativeLayout>

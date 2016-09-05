@@ -42,7 +42,6 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
-        android:background="@color/colorPrimary"
         android:onClick="startStory"/>
     <TextView
         android:layout_width="wrap_content"
@@ -55,7 +54,8 @@
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:textAlignment="center" />
 
     <Button
         android:layout_width="wrap_content"
@@ -64,7 +64,6 @@
         android:id="@+id/conversationButton"
         android:onClick="startConversationActivity"
         style="@style/Base.Widget.AppCompat.Button.Colored"
-        android:background="@color/colorPrimary"
         android:layout_below="@+id/conversationSummary"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
@@ -78,7 +77,6 @@
         android:id="@+id/practiceButton"
         android:onClick="startDialogue"
         style="@style/Base.Widget.AppCompat.Button.Colored"
-        android:background="@color/colorPrimary"
         android:layout_below="@+id/conversationButton"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
@@ -95,8 +93,9 @@
         android:paddingRight="20dp"
         android:singleLine="false"
         android:textColor="@color/welcomeNoteFontColor"
-        android:layout_below="@+id/welcomeText"
-        android:layout_alignRight="@+id/conversationSummary"
-        android:layout_alignEnd="@+id/conversationSummary" />
+        android:layout_above="@+id/storiesSummary"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginBottom="59dp" />
 
 </RelativeLayout>

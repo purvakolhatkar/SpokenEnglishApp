@@ -19,11 +19,23 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_alignParentTop="true"
-        android:layout_above="@+id/playConversation"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"></LinearLayout>
+        android:layout_alignParentEnd="true">
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="@string/ttsTip"
+        android:id="@+id/tipOnConv"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:textStyle="italic"
+        android:textColor="@color/ttsTipText" />
 
     <Button
         android:layout_width="wrap_content"
@@ -31,7 +43,7 @@
         android:text="Play All"
         android:id="@+id/playConversation"
         style="@style/Base.Widget.AppCompat.Button.Colored"
-        android:layout_alignParentBottom="true"
+        android:layout_above="@+id/tipOnConv"
         android:layout_centerHorizontal="true" />
 
 </RelativeLayout>
