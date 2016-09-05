@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.res.AssetManager;
 import android.speech.RecognizerIntent;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -33,6 +34,7 @@ public class ViewStory extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.content_view_story);
+        setupActionBar();
         Bundle extras = getIntent().getExtras();
         String  title= extras.getString("EXTRA_TO_STORY");
         AssetManager assetManager = getAssets();
@@ -82,6 +84,13 @@ public class ViewStory extends AppCompatActivity {
             Log.d("ERROR_MSG","Error in reading from file");
         }
     }
+    private void setupActionBar() {
+        ActionBar actionBar = getSupportActionBar();
+        if (actionBar != null) {
+            // Show the Up button in the action bar.
+            actionBar.setDisplayHomeAsUpEnabled(true);
+        }
+    }
 
     public void prev(View view){
         if (prv >= 0) {
@@ -93,7 +102,8 @@ public class ViewStory extends AppCompatActivity {
             tv2.setText("");
         }
         Context context = getApplicationContext();
-        context.stopService(speechServiceIntent);
+        if (speechServiceIntent!=null)
+            context.stopService(speechServiceIntent);
 
     }
 
@@ -106,7 +116,8 @@ public class ViewStory extends AppCompatActivity {
             tv2.setText("");
         }
         Context context = getApplicationContext();
-        context.stopService(speechServiceIntent);
+        if (speechServiceIntent!=null)
+            context.stopService(speechServiceIntent);
     }
     //////////////Speech to Text/////////////////
     public void promptSpeechInput(View view){
@@ -146,6 +157,7 @@ public class ViewStory extends AppCompatActivity {
     public void onPause(){
         super.onPause();
         Context context = getApplicationContext();
+        if (speechServiceIntent!=null)
         context.stopService(speechServiceIntent);
     }
     @Override
@@ -157,6 +169,7 @@ public class ViewStory extends AppCompatActivity {
     public void onDestroy(){
         super.onDestroy();
         Context context = getApplicationContext();
-        context.stopService(speechServiceIntent);
+            if (speechServiceIntent!=null)
+                context.stopService(speechServiceIntent);
     }
         }

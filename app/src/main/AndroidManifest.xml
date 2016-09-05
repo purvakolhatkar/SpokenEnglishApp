@@ -11,21 +11,30 @@
         <activity
             android:name=".HomeActivity"
             android:label="@string/app_name"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ConversationSelect" />
+        <activity android:name=".ConversationSelect"
+            android:label="@string/app_name"
+            android:parentActivityName=".HomeActivity"
+            android:theme="@style/Theme.AppCompat.Light.DarkActionBar"/>
+
         <activity
             android:name=".SettingsActivity"
-            android:label="@string/title_activity_settings" />
+            android:label="@string/title_activity_settings"
+            android:parentActivityName=".HomeActivity"
+            android:theme="@style/Theme.AppCompat.Light.DarkActionBar"/>
         <service
             android:name=".SpeechService"
             android:enabled="true" />
 
-        <activity android:name=".ViewConversation" />
+        <activity android:name=".ViewConversation"
+            android:label="@string/app_name"
+            android:parentActivityName=".ConversationSelect"
+            android:theme="@style/Theme.AppCompat.Light.DarkActionBar"/>
         <!--
  ATTENTION: This was auto-generated to add Google Play services to your project for
      App Indexing.  See https://g.co/AppIndexing/AndroidStudio for more information.
@@ -34,11 +43,22 @@
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
 
-        <activity android:name=".PracticeConversation" />
-        <activity android:name=".StorySelect" />
-        <activity android:name=".ViewStory" />
+        <activity android:name=".PracticeConversation"
+            android:label="@string/app_name"
+            android:parentActivityName=".HomeActivity"
+            android:theme="@style/Theme.AppCompat.Light.DarkActionBar"/>
+        <activity android:name=".StorySelect"
+            android:label="@string/app_name"
+            android:parentActivityName=".HomeActivity"
+            android:theme="@style/Theme.AppCompat.Light.DarkActionBar"/>
+        <activity android:name=".ViewStory"
+            android:label="@string/app_name"
+            android:parentActivityName=".StorySelect"
+            android:theme="@style/Theme.AppCompat.Light.DarkActionBar"/>
         <activity android:name=".AboutActivity"
-            android:label="About"/>
+            android:label="About"
+            android:parentActivityName=".HomeActivity"
+            android:theme="@style/Theme.AppCompat.Light.DarkActionBar"/>
     </application>
 
 </manifest>

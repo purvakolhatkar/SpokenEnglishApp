@@ -2,6 +2,7 @@ package com.purva.nits.spokenenglishapp;
 
 import android.app.ListActivity;
 import android.content.Intent;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -75,6 +76,13 @@ public class ConversationSelect extends ListActivity {
        // layout.addView(textView);
       }
 
+    private void setupActionBar() {
+        ActionBar actionBar = new AppCompatActivity().getSupportActionBar();
+        if (actionBar != null) {
+            // Show the Up button in the action bar.
+            actionBar.setDisplayHomeAsUpEnabled(true);
+        }
+    }
     @Override
     protected void onListItemClick(ListView l, View v, int position, long id) {
 

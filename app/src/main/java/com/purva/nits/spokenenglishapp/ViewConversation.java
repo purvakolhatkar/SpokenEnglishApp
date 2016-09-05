@@ -7,6 +7,7 @@ import android.content.res.ColorStateList;
 import android.database.Cursor;
 import android.graphics.Color;
 import android.preference.PreferenceManager;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.TypedValue;
@@ -36,6 +37,7 @@ public class ViewConversation extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_conversation);
+        setupActionBar();
         final DBHelper dbHelper = new DBHelper(this);
         //int conversationId = Integer.parseInt(getIntent().getStringExtra(ViewConversation.EXTRA_TO_CONV));
         Bundle extras = getIntent().getExtras();
@@ -110,11 +112,19 @@ public class ViewConversation extends AppCompatActivity {
 
         //textView.setText(line);
     }
+    private void setupActionBar() {
+        ActionBar actionBar = getSupportActionBar();
+        if (actionBar != null) {
+            // Show the Up button in the action bar.
+            actionBar.setDisplayHomeAsUpEnabled(true);
+        }
+    }
     @Override
     public void onPause(){
         super.onPause();
         Context context = getApplicationContext();
-        context.stopService(speechServiceIntent);
+        if (speechServiceIntent!=null)
+            context.stopService(speechServiceIntent);
     }
     @Override
     public void onResume() {
@@ -125,7 +135,8 @@ public class ViewConversation extends AppCompatActivity {
     public void onDestroy(){
         super.onDestroy();
         Context context = getApplicationContext();
-        context.stopService(speechServiceIntent);
+        if (speechServiceIntent!=null)
+            context.stopService(speechServiceIntent);
     }
 
 }
