@@ -18,8 +18,8 @@
 3,3,I want to get to the airport. Can you tell me how to get there?,A
 3,4,I'm sorry. I don't know.,B
 3,5,I think I can take the bus there. Do you know where the nearest bus stop is?,A
-3,6,Sure. Take a left at the next signal.,B
-3,7,Thanks!Have a nice day!,A
+3,6,Sure. Its after next signal.,B
+3,7,Thanks!,A
 4,1,Hello sir. welcome to the restaurant. How many?,Host
 4,2,Two.,A
 4,3,Right this way. Please have a seat. Your waiter will be with you in a moment.,Host
