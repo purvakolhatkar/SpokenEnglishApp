@@ -15,7 +15,7 @@
     <string name="welcomeNote">Speak fluent English by practicing everyday.\nLearn with simple short stories and day to day coversations.\nMore to come&#8230;
     </string>
     <string name="conversationPracticePage">Practice with below conversations</string>
-
+    <string name="welcome">Learn Spoken English by practicing everyday conversations. Listen to stories and try reading them out loud.</string>
     <!-- General -->
     <string name="speech_prompt">Say something&#8230;</string>
     <string name="ttsTip">Tap on Text to Listen</string>
