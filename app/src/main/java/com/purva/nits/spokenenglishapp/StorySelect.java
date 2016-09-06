@@ -47,7 +47,6 @@ public class StorySelect extends ListActivity {
         }
         catch (Exception e)
         {
-            Log.d("ErrorMessage","Error in Story Reader");
             e.printStackTrace();
         }
         }

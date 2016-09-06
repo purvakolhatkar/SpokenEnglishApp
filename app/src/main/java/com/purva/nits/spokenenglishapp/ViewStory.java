@@ -78,8 +78,7 @@ public class ViewStory extends AppCompatActivity {
         catch (IOException e)
         {
             e.printStackTrace();
-            Log.d("ERROR_MSG","Error in reading from file");
-        }
+          }
     }
     private void setupActionBar() {
         ActionBar actionBar = getSupportActionBar();

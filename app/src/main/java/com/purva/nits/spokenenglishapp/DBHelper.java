@@ -34,8 +34,6 @@ public class DBHelper extends SQLiteOpenHelper{
         db.execSQL("create table conversationTable "+"(conversationId integer primary key,type text,title text)");
         db.execSQL("create table dialogueTable "+"(conversationId integer,sentenceId integer, sentences text,person text,foreign key(conversationId) references conversationTable(conversationId))");
         db.execSQL("create table questionTable "+"(id integer primary key,question text,answer text)");
-        Log.d("Insert:","...Inserting...");
-        //db.close();
         try {
             AssetManager assetManager=activity_context.getAssets();
             BufferedReader conversationListReader = new BufferedReader(new InputStreamReader(assetManager.open("conversationDump.csv")));
@@ -77,12 +75,10 @@ public class DBHelper extends SQLiteOpenHelper{
         }
         catch (FileNotFoundException e)
         {
-            Log.d("FileNotFound","Data file not found");
-        }
+          }
         catch (IOException e)
         {
-            Log.d("IOException","End of file reached or file is empty/invalid");
-        }
+          }
         }
 
     @Override
