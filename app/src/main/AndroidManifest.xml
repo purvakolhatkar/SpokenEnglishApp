@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.purva.nits.spokenenglishapp"
-android:versionCode="1"
-    android:versionName="1.0"
-    >
+    package="com.purva.nits.spokenenglishapp">
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -12,7 +10,8 @@ android:versionCode="1"
         android:theme="@style/AppTheme">
         <activity
             android:name=".SplashActivity"
-            android:theme="@style/SplashTheme">
+            android:theme="@style/SplashTheme"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -22,7 +21,8 @@ android:versionCode="1"
         <activity
             android:name=".HomeActivity"
             android:label="@string/app_name"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:theme="@style/AppTheme.NoActionBar"
+            android:screenOrientation="portrait">
 
             <!--
             <intent-filter>
@@ -35,12 +35,14 @@ android:versionCode="1"
             android:name=".ConversationSelect"
             android:label="@string/app_name"
             android:parentActivityName=".HomeActivity"
-            android:theme="@style/Theme.AppCompat.Light.DarkActionBar" />
+            android:theme="@style/Theme.AppCompat.Light.DarkActionBar"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".SettingsActivity"
             android:label="@string/title_activity_settings"
             android:parentActivityName=".HomeActivity"
-            android:theme="@style/Theme.AppCompat.Light.DarkActionBar" />
+            android:theme="@style/Theme.AppCompat.Light.DarkActionBar"
+            android:screenOrientation="portrait"/>
 
         <service
             android:name=".SpeechService"
@@ -50,35 +52,32 @@ android:versionCode="1"
             android:name=".ViewConversation"
             android:label="@string/app_name"
             android:parentActivityName=".ConversationSelect"
-            android:theme="@style/Theme.AppCompat.Light.DarkActionBar" />
-        <!--
- ATTENTION: This was auto-generated to add Google Play services to your project for
-     App Indexing.  See https://g.co/AppIndexing/AndroidStudio for more information.
-        -->
-        <meta-data
-            android:name="com.google.android.gms.version"
-            android:value="@integer/google_play_services_version" />
+            android:theme="@style/Theme.AppCompat.Light.DarkActionBar"
+            android:screenOrientation="portrait"/>
 
         <activity
             android:name=".PracticeConversation"
             android:label="@string/app_name"
             android:parentActivityName=".HomeActivity"
-            android:theme="@style/Theme.AppCompat.Light.DarkActionBar" />
+            android:theme="@style/Theme.AppCompat.Light.DarkActionBar"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".StorySelect"
             android:label="@string/app_name"
             android:parentActivityName=".HomeActivity"
-            android:theme="@style/Theme.AppCompat.Light.DarkActionBar" />
+            android:theme="@style/Theme.AppCompat.Light.DarkActionBar"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".ViewStory"
             android:label="@string/app_name"
             android:parentActivityName=".StorySelect"
-            android:theme="@style/Theme.AppCompat.Light.DarkActionBar" />
+            android:theme="@style/Theme.AppCompat.Light.DarkActionBar"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".AboutActivity"
             android:label="About"
             android:parentActivityName=".HomeActivity"
-            android:theme="@style/Theme.AppCompat.Light.DarkActionBar" />
+            android:theme="@style/Theme.AppCompat.Light.DarkActionBar"
+            android:screenOrientation="portrait"/>
     </application>
-
 </manifest>
