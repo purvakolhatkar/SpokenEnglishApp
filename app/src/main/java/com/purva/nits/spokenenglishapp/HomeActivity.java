@@ -37,12 +37,6 @@ public class HomeActivity extends AppCompatActivity {
 
         storyButton=(Button) findViewById(R.id.storyButton);
         storiesSummary=(TextView) findViewById(R.id.storiesSummary);
-       /** storyButton.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View view){
-                speak();
-            }
-        }); **/
 
         Button moreButton = (Button) findViewById(R.id.moreDummy1);
         moreButton.setOnClickListener(new View.OnClickListener() {

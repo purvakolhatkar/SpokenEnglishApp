@@ -31,7 +31,6 @@ public class StorySelect extends ListActivity {
             AssetManager assetManager = getAssets();
             BufferedReader storyListReader = new BufferedReader(new InputStreamReader(assetManager.open("Titles.txt")));
             String temp;
-            String[] values;
             ArrayList<String> story=new ArrayList<>();
             int i=0;
             while ((temp=storyListReader.readLine())!=null)
@@ -57,8 +56,6 @@ public class StorySelect extends ListActivity {
     protected void onListItemClick(ListView listView, View view, int position, long id) {
 
         super.onListItemClick(listView, view, position, id);
-        // ListView Clicked item index
-        //int itemPosition = position;
         // ListView Clicked item value
         String itemValue = (String) listView.getItemAtPosition(position);
         if(itemValue.equals(MORE)){
@@ -70,12 +67,5 @@ public class StorySelect extends ListActivity {
             System.out.println("Story selected::"+itemValue);
             startActivity(toStory_intent);
         }
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_home, menu);
-        return true;
     }
 }

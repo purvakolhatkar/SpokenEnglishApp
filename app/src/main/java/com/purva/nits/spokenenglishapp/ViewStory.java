@@ -26,10 +26,7 @@ public class ViewStory extends AppCompatActivity {
     private Intent speechServiceIntent;
     private final int REQ_CODE_SPEECH_INPUT = 100;
     BufferedReader storyReader;
-/**    String prv="";
-    String nxt="";
-    String curr="";**/
-    int prv,nxt,curr,index;
+    int previous, next, current,index;
     TextView ttsStoryView, sttStoryView, storyTitleView;
     ArrayList<String> story=new ArrayList<>();
     @Override
@@ -51,13 +48,6 @@ public class ViewStory extends AppCompatActivity {
         sttStoryView.setTextSize(Float.parseFloat(pref.getString("textSize","18")));
         storyTitleView = (TextView)findViewById(R.id.storyTitle);
         storyTitleView.setText(title);
-       // sttStoryView.setClickable(true);
-        /**sttStoryView.setOnClickListener(new View.OnClickListener() {             //
-            @Override                                                          //
-            public void onClick(View view) {
-                promptSpeechInput();
-            }                                                                  //
-        });**/
         index=0;
         try {
             storyReader = new BufferedReader(new InputStreamReader(assetManager.open(title + ".txt")));
@@ -68,9 +58,9 @@ public class ViewStory extends AppCompatActivity {
                 }
             if (!story.isEmpty()) {
                 ttsStoryView.setText(story.get(0));
-                prv = 0;
-                curr = 0;
-                nxt = 1;
+                this.previous = 0;
+                current = 0;
+                this.next = 1;
             }
             ttsStoryView.setClickable(true);
             ttsStoryView.setOnClickListener(new View.OnClickListener(){
@@ -100,12 +90,12 @@ public class ViewStory extends AppCompatActivity {
     }
 
     public void prev(View view){
-        if (prv >= 0) {
+        if (previous >= 0) {
 
-            ttsStoryView.setText(story.get(prv));
-            nxt=curr;
-            curr=prv;
-            prv=prv-1;
+            ttsStoryView.setText(story.get(previous));
+            next = current;
+            current = previous;
+            previous = previous -1;
             sttStoryView.setText("");
         }
         Context context = getApplicationContext();
@@ -115,11 +105,11 @@ public class ViewStory extends AppCompatActivity {
     }
 
     public void next(View view){
-        if (nxt < story.size()) {
-            ttsStoryView.setText(story.get(nxt));
-            curr=nxt;
-            nxt=curr+1;
-            prv=curr-1;
+        if (next < story.size()) {
+            ttsStoryView.setText(story.get(next));
+            current = next;
+            next = current +1;
+            previous = current -1;
             sttStoryView.setText("");
         }
         Context context = getApplicationContext();
@@ -179,4 +169,4 @@ public class ViewStory extends AppCompatActivity {
             if (speechServiceIntent!=null)
                 context.stopService(speechServiceIntent);
     }
-        }
+}

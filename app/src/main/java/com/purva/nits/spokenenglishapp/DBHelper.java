@@ -95,12 +95,6 @@ public class DBHelper extends SQLiteOpenHelper{
     //Insert into conversationTable and dialogueTable table
     public boolean insertDialogues(int conversationId, int sentenceId, String sentence, String person, SQLiteDatabase db1)
     {
-     //SQLiteDatabase db1 = this.getWritableDatabase();
-        //ContentValues contentValues = new ContentValues();
-        //contentValues.put("type", type);
-        //long i=db.insert("conversationTable", null, contentValues); //returns the primary key of the row inserted
-        //Cursor rec= db.rawQuery("SELECT * FROM conversationTable WHERE conversationId = (SELECT MAX(conversationId) FROM conversationTable);",null);
-        //int i=rec.getInt(1);
             ContentValues contentValues = new ContentValues();
             contentValues.put("conversationId", conversationId);
             contentValues.put("sentenceId", sentenceId);
@@ -112,16 +106,11 @@ public class DBHelper extends SQLiteOpenHelper{
     // Getting all sentences in one conversation
     public Cursor getDialogue(int conversationId)
     {
-       // ArrayList<String> conversations= new ArrayList<String>();
         System.out.println(this.getDatabaseName());
         SQLiteDatabase db2=this.getReadableDatabase();
         Cursor cursor= db2.rawQuery("select * from dialogueTable where conversationId="+conversationId+"",null);
         cursor.moveToFirst();
-        /**while (rec.isAfterLast()== false){
-            conversations.add(cursor.getString(rec.getColumnIndex("sentences")));
-            rec.moveToNext();
-        }
- **/       db2.close();
+        db2.close();
         return cursor;
     }
 

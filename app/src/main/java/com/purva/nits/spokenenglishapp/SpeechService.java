@@ -40,9 +40,6 @@ public class SpeechService extends Service implements TextToSpeech.OnInitListene
 
         tts.setLanguage(new Locale(pref.getString("speechLocale", "en_US")));
         tts.setSpeechRate(Float.parseFloat(pref.getString("speechSpeed","1")));
-        /*Toast.makeText(getApplicationContext(), "Speech Locale " + pref.getString("speechLocale", "en_US") +
-                "\nSpeed " + pref.getString("speechSpeed","1") , Toast.LENGTH_SHORT).show();
-        Toast.makeText(getApplicationContext(),"Word pause interval "+pref.getString("wordPause","0"),Toast.LENGTH_SHORT).show();*/
 
         if (isInit != null && isInit) {
             speak();

@@ -18,21 +18,21 @@ public class PracticeConversation extends AppCompatActivity {
     private Intent speechServiceIntent;
     private final int REQ_CODE_SPEECH_INPUT = 100;
     DBHelper dbHelper=new DBHelper(this);
-    int curr=0,prv=0,nxt=0;
+    int current =0, previous =0, next =0;
     String[] qa;
-    TextView tv1,tv2,tv3;
+    TextView tv1, tv2,tv3;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.content_practice_conversation);
         setupActionBar();
-        curr=1;
-        prv=1;
-        qa=dbHelper.getQuestionAnswer(curr);
-        tv1=(TextView) findViewById(R.id.question);
-        tv2=(TextView) findViewById(R.id.answer);
+        current =1;
+        previous =1;
+        qa=dbHelper.getQuestionAnswer(current);
+        tv1 =(TextView) findViewById(R.id.question);
+        tv2 =(TextView) findViewById(R.id.answer);
         tv3=(TextView) findViewById(R.id.replyA);
-        nxt=2;
+        next =2;
         tv1.setText(qa[1]);
         tv2.setText("");
         tv3.setText("");
@@ -71,12 +71,12 @@ public class PracticeConversation extends AppCompatActivity {
         }
     }
     public void nextQ(View view) {
-        if (nxt <= dbHelper.getCountQ())
+        if (next <= dbHelper.getCountQ())
         {
-            qa = dbHelper.getQuestionAnswer(nxt);
-        curr = nxt;
-        prv = curr - 1;
-        nxt = curr + 1;
+            qa = dbHelper.getQuestionAnswer(next);
+        current = next;
+        previous = current - 1;
+        next = current + 1;
         if (!qa[1].isEmpty())
             tv1.setText(qa[1]);
         tv2.setText("");
@@ -90,12 +90,12 @@ public class PracticeConversation extends AppCompatActivity {
 
     public void previousQ(View view)
     {
-     if(prv>0)
+     if(previous >0)
      {
-        qa=dbHelper.getQuestionAnswer(prv);
-        curr=prv;
-        prv=curr-1;
-        nxt=curr+1;
+        qa=dbHelper.getQuestionAnswer(previous);
+        current = previous;
+        previous = current -1;
+        next = current +1;
         if(!qa[1].isEmpty())
             tv1.setText(qa[1]);
          tv2.setText("");
