@@ -71,15 +71,7 @@ public class ViewStory extends AppCompatActivity {
                     context.startService(speechServiceIntent);
                 }
             });
-
-        }
-
-        catch (IOException e)
-        {
-            e.printStackTrace();
-          }
-        catch (Exception e)
-        {
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }

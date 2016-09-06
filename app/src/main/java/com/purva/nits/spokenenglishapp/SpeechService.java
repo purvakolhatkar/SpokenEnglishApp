@@ -9,6 +9,7 @@ import android.preference.PreferenceManager;
 import android.speech.tts.TextToSpeech;
 import android.widget.Toast;
 
+import java.util.ArrayList;
 import java.util.Locale;
 
 /**

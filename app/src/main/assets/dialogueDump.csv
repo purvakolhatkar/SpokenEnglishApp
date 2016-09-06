@@ -20,19 +20,19 @@
 3,5,I think I can take the bus there. Do you know where the nearest bus stop is?,A
 3,6,Sure. Take a left at the next signal.,B
 3,7,Thanks!Have a nice day!,A
-4,1,"Hello sir. welcome to the restaurant. How many?",Host
+4,1,Hello sir. welcome to the restaurant. How many?,Host
 4,2,Two.,A
 4,3,Right this way. Please have a seat. Your waiter will be with you in a moment.,Host
-4,4,"Hello sir. hello ma'am. Would you like to order now?",Waiter
+4,4,Hello sir. hello ma'am. Would you like to order now?,Waiter
 4,5,Yes please.,A
-4,6,What would you like to drink?,Waiter
-4,7,What do you have?,A
-4,8,"We have bottled water juice and coffee.",Waiter
-4,9,I'll have a bottle of water please.,A
-4,10,What would you like to eat?,Waiter
-4,11,I'll have a Veg sandwich and a bowl of tomato soup.,A
-5,1,"Hey John. How have you been?",Bob
-5,2,"Hi Bob. How are you?",John
-5,3,I am good. It has been a long time,Bob
-5,4,Yes it has. What is going on with you?,John
-5,5,I have been pretty busy with work.,Bob
+5,1,What would you like to drink?,Waiter
+5,2,What do you have?,A
+5,3,We have bottled water juice and coffee.,Waiter
+5,4,I'll have a bottle of water please.,A
+5,5,What would you like to eat?,Waiter
+5,6,I'll have a Veg sandwich and a bowl of tomato soup.,A
+6,1,Hey John. How have you been?,Bob
+6,2,Hi Bob. How are you?,John
+6,3,I am good. It has been a long time,Bob
+6,4,Yes it has. What is going on with you?,John
+6,5,I have been pretty busy with work.,Bob

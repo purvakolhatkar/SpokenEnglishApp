@@ -15,9 +15,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/title"
-        android:text="Communicative English"
+        android:text="@string/app_name"
         style="@style/Base.TextAppearance.AppCompat.Headline"
-        android:textSize="30sp"
+        android:textSize="28dp"
         android:layout_alignParentEnd="true"
         android:layout_alignParentStart="true"
         android:textAlignment="center"
@@ -29,7 +29,7 @@
     android:id="@+id/welcome"
     android:text="@string/welcome"
     android:textStyle="italic"
-    android:textSize="18dp"
+    android:textSize="16dp"
     style="@style/TextAppearance.AppCompat.Body1"
     android:layout_below="@+id/title"
     android:layout_alignParentStart="true"
@@ -42,12 +42,13 @@
         style="@style/Base.TextAppearance.AppCompat.Headline"
         android:id="@+id/storiesSummary"
         android:background="@color/heading_title_back"
-        android:padding="16dp"
         android:layout_above="@+id/storyButton"
-        android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentEnd="true"
+        android:paddingLeft="16dp"
+        android:paddingTop="12dp"
+        android:paddingRight="16dp"
+        android:paddingBottom="12dp" />
 
     <Button
         android:layout_width="wrap_content"
@@ -68,12 +69,13 @@
         android:id="@+id/conversationSummary"
         style="@style/Base.TextAppearance.AppCompat.Headline"
         android:background="@color/heading_title_back"
-        android:padding="16dp"
         android:layout_above="@+id/conversationButton"
-        android:layout_alignLeft="@+id/storyButton"
         android:layout_alignStart="@+id/storyButton"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentEnd="true"
+        android:paddingLeft="16dp"
+        android:paddingTop="12dp"
+        android:paddingRight="16dp"
+        android:paddingBottom="12dp" />
 
     <Button
         android:layout_width="wrap_content"
@@ -99,7 +101,6 @@
         android:padding="24dp"
         android:background="@color/home_tiles"
         android:layout_alignParentBottom="true"
-        android:layout_toRightOf="@+id/conversationButton"
         android:layout_toEndOf="@+id/conversationButton" />
 
     <Button
@@ -112,10 +113,8 @@
         android:padding="30dp"
         android:background="@color/home_tiles"
         android:layout_alignTop="@+id/storyButton"
-        android:layout_alignBottom="@+id/storyButton"
-        android:layout_toLeftOf="@+id/moreDummy2"
-        android:layout_toRightOf="@+id/storyButton"
-        android:layout_toEndOf="@+id/storyButton" />
+        android:layout_toEndOf="@+id/storyButton"
+        android:layout_alignBottom="@+id/storyButton" />
 
     <Button
         style="@style/Base.Widget.AppCompat.Button.Borderless"
@@ -125,7 +124,6 @@
         android:text="@string/moreButton"
         android:padding="30dp"
         android:drawableTop="@android:drawable/ic_input_add"
-        android:layout_toRightOf="@+id/practiceButton"
         android:layout_toEndOf="@+id/practiceButton"
         android:layout_alignBottom="@+id/practiceButton"
         android:background="@color/home_tiles"
