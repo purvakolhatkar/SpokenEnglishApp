@@ -38,5 +38,6 @@
     <string name="placeholder">Placeholder</string>
     <string name="replyTip">Tap to Reply</string>
     <string name="conversationList">Learn Conversations</string>
+    <string name="storyList">Stories</string>
 
 </resources>

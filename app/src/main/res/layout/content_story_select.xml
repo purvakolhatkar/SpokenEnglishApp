@@ -15,7 +15,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/conversationListTitle"
-        android:text="List of Stories"
+        android:text="@string/storyList"
         style="@style/Base.TextAppearance.AppCompat.Title"
         android:layout_gravity="center_horizontal"
         android:layout_alignParentTop="true"
@@ -37,9 +37,7 @@
         style="@style/Base.Widget.AppCompat.ListView"
         android:padding="16dp"
         android:layout_below="@+id/conversationListTitle"
-        android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true">
     </ListView>
