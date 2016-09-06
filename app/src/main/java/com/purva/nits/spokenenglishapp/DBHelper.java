@@ -75,6 +75,7 @@ public class DBHelper extends SQLiteOpenHelper{
         }
         catch (FileNotFoundException e)
         {
+            Log.d("","");
           }
         catch (IOException e)
         {

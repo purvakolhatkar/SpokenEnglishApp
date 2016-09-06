@@ -10,7 +10,6 @@ import android.speech.RecognizerIntent;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -79,6 +78,10 @@ public class ViewStory extends AppCompatActivity {
         {
             e.printStackTrace();
           }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+        }
     }
     private void setupActionBar() {
         ActionBar actionBar = getSupportActionBar();

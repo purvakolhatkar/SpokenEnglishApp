@@ -4,17 +4,13 @@ import android.app.ListActivity;
 import android.content.Intent;
 import android.content.res.AssetManager;
 import android.support.design.widget.Snackbar;
-import android.support.v7.app.ActionBar;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.Toolbar;
-import android.util.Log;
-import android.view.Menu;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import java.io.BufferedReader;
+import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -44,6 +40,10 @@ public class StorySelect extends ListActivity {
 
             setListAdapter(adapter);
 
+        }
+        catch (IOException e)
+        {
+            e.printStackTrace();
         }
         catch (Exception e)
         {
