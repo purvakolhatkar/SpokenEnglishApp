@@ -6,7 +6,7 @@
         android:key="speechLocale"
         android:title="@string/locale_setting_title" />
     <ListPreference
-        android:defaultValue="1"
+        android:defaultValue="0.8"
         android:entries="@array/speechSpeed"
         android:entryValues="@array/speechSpeedValues"
         android:key="speechSpeed"

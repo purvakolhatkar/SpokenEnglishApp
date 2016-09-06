@@ -39,7 +39,7 @@ public class SpeechService extends Service implements TextToSpeech.OnInitListene
         SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
 
         tts.setLanguage(new Locale(pref.getString("speechLocale", "en_US")));
-        tts.setSpeechRate(Float.parseFloat(pref.getString("speechSpeed","1")));
+        tts.setSpeechRate(Float.parseFloat(pref.getString("speechSpeed","0.8")));
 
         if (isInit != null && isInit) {
             speak();

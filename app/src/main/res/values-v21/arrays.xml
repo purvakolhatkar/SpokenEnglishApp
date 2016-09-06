@@ -11,13 +11,13 @@
         <item name="en_IN">en_IN</item>
     </string-array>
     <string-array name="speechSpeed">
-        <item name="1">Normal</item>
-        <item name="0.75">Medium</item>
+        <item name="0.8">Normal</item>
+        <item name="0.7">Medium</item>
         <item name="0.5">Slow</item>
     </string-array>
     <string-array name="speechSpeedValues">
-        <item name="1">1</item>
-        <item name="0.75">0.75</item>
+        <item name="0.8">0.8</item>
+        <item name="0.7">0.7</item>
         <item name="0.5">0.5</item>
     </string-array>
     <string-array name="wordPause">
