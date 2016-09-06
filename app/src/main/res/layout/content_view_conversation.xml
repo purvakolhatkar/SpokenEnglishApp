@@ -35,7 +35,7 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:textStyle="italic"
-        android:textColor="@color/ttsTipText" />
+        android:textColor="@color/tipText" />
 
     <Button
         android:layout_width="wrap_content"

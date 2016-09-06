@@ -37,5 +37,6 @@
     <string name="speakButtonCaption">Tap to Speak</string>
     <string name="placeholder">Placeholder</string>
     <string name="replyTip">Tap to Reply</string>
+    <string name="conversationList">Learn Conversations</string>
 
 </resources>

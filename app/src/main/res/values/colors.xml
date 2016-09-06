@@ -5,7 +5,7 @@
     <color name="colorAccent">#1f66ff</color>
     <color name="answer_text">#1bbf68</color>
     <color name="welcomeNoteFontColor">#2692ff</color>
-    <color name="ttsTipText">#b9b9b9</color>
+    <color name="tipText">#b9b9b9</color>
     <color name="heading_title_back">#b24cc8fd</color>
     <color name="home_tiles">#89007fc3</color>
     <color name="home_title_button_text_color">#ffffff</color>

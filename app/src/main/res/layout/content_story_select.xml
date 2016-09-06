@@ -19,16 +19,18 @@
         style="@style/Base.TextAppearance.AppCompat.Title"
         android:layout_gravity="center_horizontal"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        />
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:textAlignment="center" />
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/conversationListTitle"
-        android:text="(Hint:Tap on sentences to listen)"
+        android:text="@string/ttsTip"
         android:layout_centerInParent="true"
         android:textSize="16sp"
-        android:textStyle="italic" />
+        android:textStyle="italic"
+        android:textColor="@color/tipText" />
     <ListView android:id="@android:id/list"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
